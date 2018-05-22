@@ -1,0 +1,27 @@
+\section{Description des méthodes de test}
+	\subsection{Tests unitaires}
+	Pour les tests unitaires, l’équipe a prévu de tester les services kotlin de notre “backend”. Un service est une unité de logique d’entreprise (“Business logic”) avec des intrants et des extrants. 
+
+	L’équipe ne va pas tester au niveau unitaire les contrôleurs, les requêtes HTTP et l'interface avec la base de donnée. Ceci va être testé dans les tests d’intégrations.
+
+	Les tests unitaires seront créés avec le framework JUnit. Leur exécution sera automatisé sur les postes local des développeurs et sur nos serveurs de déploiement. 
+
+	Du côté de l’application mobile, les tests unitaires seront écrits à l’aide de Jest. Nous testerons majoritairement la transformation des résultats des API appelés par l’application mobile. 
+
+	\subsection{Tests d'intégration}
+	Le principal élément à tester au niveau de l’intégration est l’API de notre système. L’équipe devra automatiser ces tests également. Cette tâche est complexe, car il faut intégrer plusieurs systèmes ensemble dans un environnement de tests. Il faut qu’il soit productif d’écrire les tests d’intégrations, car sinon aucun développeur désirera en écrire et nous aurons une couverture incomplète de tests.
+
+	Pour rendre l’écriture des tests d’intégrations productif, l’équipe prévoit utiliser une combinaison de JUnit, de la technique d’injection de dépendances et de “Fixtures”. JUnit permettra de faire des assertions pour déterminer si un test d’intégration passe ou non. L’injection de dépendances permettra de “mocker” certains éléments cachés du système pour limiter les “side effects” et bien isoler les fonctionnalités que nous voulons tester. Finalement, les “fixtures” sont un outil pratique gérer l’état de notre base de données et comparer au début et à la fin des tests si l’état de la base de données a changé comme prévu.
+
+	Ces tests seront automatisés sur les postes des développeurs et sur les serveurs de déploiement.
+
+	Pour l’application mobile, Jest sera également utilisé pour les tests d’intégration. Ceux-ci vont consister principalement en des tests de UI pour s’assurer que les vues sont générés correctement. 
+
+	\subsection{Processus de test prévus}
+	Pour exécuter les tests sur les postes local des développeurs, ils devront lancer une commande qui exécutera l’ensemble ou un sous-ensemble des tests. Lorsqu’un développeur écrit une nouvelle fonctionnalité, il doit écrire un ou des tests qui s’assure de la présence et du bon fonctionnement de cette fonctionnalité. 
+
+	Ensuite, le développeur peut envoyer son code en révision par le biais d’une “merge request” (MR). Sur la MR la totalité des tests seront exécutés, puis d’autres membres de l’équipe pourront commenter les changements apportés au code. 
+
+	Les tests seront donc exécutés à très haute fréquence, puisque pour chaque changement au code principal (sur la branche master) il y aura exécution de la totalité des tests. 
+
+	Pour l’application mobile le processus sera plus manuel. Les tests seront exécutés avec une commande sur le poste du développeur. Puis celui-ci va déployer de manière manuelle l’application sur la plateforme de son choix

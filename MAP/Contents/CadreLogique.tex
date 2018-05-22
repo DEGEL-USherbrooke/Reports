@@ -1,0 +1,31 @@
+\section{Organisation du projet}
+	\subsection{Mission et objectifs}
+	Pour le projet de S6, l’équipe a pour mission de créer une application mobile afin de permettre aux étudiants d’accéder aux services du site web GEL via un téléphone mobile. Ce projet vise à apporter de la mobilité et de l’accessibilité à l’utilisateur. De plus, cette application permettra au département de Génie électrique et informatique de s’adapter aux nouvelles technologies tout en réduisant le taux d’absences en cas de changement d’horaire. Ultimement, celle-ci améliorera la communication entre le département et ses étudiants en réduisant les délais et en s’assurant que tous les éléments importants à communiquer seront transmis efficacement.
+
+	Plusieurs objectifs sont visés en ce qui concerne ce projet. Tout d’abord, l’utilisateur utilisera une application mobile lui permettant de se connecter qu’une fois par session et aura accès à la dernière version de son horaire. Celui-ci aura aussi accès à un service de notifications avec plusieurs options afin d’être au courant de tous changements dans l’horaire. L’utilisateur décidera ses préférences pour recevoir ses notifications. Il pourra être notifié par l’application mobile, par courriel et/ou par messagerie texte. Un second objectif sera d’offrir le même service pour la grille de notes. Dans le cas d’un déroulement rapide du projet, l’équipe offrira un service identique s’appliquant aux messages écrits par les professeurs.
+	
+	\subsection{Intrants}
+	Plusieurs intrants sont prévus pour l’application mobile. Il y a bien entendu, l’utilisateur de l’application mobile. En effet, il faudra développer une interface utilisateur simple, efficace et solide qui saura réagir face à tous comportements imprévus. Un autre intrant nécessaire est le serveur CAS utilisé par l’université de Sherbrooke. Ceci permet à un étudiant de s’authentifier. Ensuite, comme l’équipe souhaite offrir à l’utilisateur un accès à son horaire le plus récent, elle s’est entendue avec Bernard Beaulieu pour avoir la base de données incluant les horaires des étudiants comme intrant à son projet. Finalement, une autre équipe a décidé de concevoir un service de notification généralisé. Alors, notre équipe a décidé d’utiliser leur service comme intrant au projet. Toutefois, le succès de notre projet ne sera pas dépendant de la réussite de leur service puisqu’une gestion de notifications sera implémenté directement dans l’application.
+
+	\subsection{Échéancier préliminaire}
+	Le projet se déroulera en 13 semaines, organisées en 3 sprints suivant la méthode agile SCRUM.
+	%TODO Tableau des échéances
+
+	\subsection{Conditions critiques}
+	La première condition critique est la mise en place des machines virtuelles sur les serveurs de l'UdeS qui hébergeront les différents services de l'application et sa base de données.
+
+	Sans cette condition, le déploiement de l'application ne pourra pas se faire et le projet n'aura pas lieu d'être.
+
+	La seconde condition critique est l'accès au service d'authentification mis en place par l'université afin d'assurer une sécurité équivalente à celle déjà existante. Ensuite, l'accès aux données du site Horarius permettra de constater l'efficacité du système de notifications. Ainsi, si le projet sera indépendant des applications desquelles ils tirera les données utiles d'un point de vue fonctionnel, son utilité dépendra en partie des services qui tireront partie du système de notifications.
+
+	Enfin, la mise en place d'un serveur d'authentification interne à l'application qui assurera la connexion sur une période de temps plus longue que celle fournie par CAS sera essentielle dans le sens où l'application devra fournir un service rapide sur toute la durée d'une session d’étude pour ne pas perdre de son intérêt.
+
+	\subsection{Extrants, indicateurs d'achèvement et vérification}
+	Le premier extrant de la réussite du projet est une connexion prolongée de l’utilisateur. En effet, lorsque l’utilisateur sera en mesure de se connecter qu’une fois par session et d’utiliser l’application sans perdre son accès, ce service sera considéré comme réussi. Bien-sûr, il ne faut pas supprimer l’application mobile ou se déconnecter.
+
+	Le deuxième extrant est l’accès à l’horaire et, éventuellement, aux notes et aux messages des professeurs les plus récents. L’utilisateur devra pouvoir utiliser l’application mobile sans percevoir de différence avec les données sur le site web GEL.
+
+	Finalement, la réception de notifications rapides signalant tous changements dans les différents éléments fournis par l’application est un extrant critique pour le succès du projet. L’utilisateur ne devra à aller sans cesse sur son téléphone pour être à jour dans les éléments transmis par son département.
+
+	\subsection{Risques, déclencheurs et plan de contingence}
+	%TODO Tableau des risques

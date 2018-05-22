@@ -1,0 +1,11 @@
+\section{Contenu technique}
+	\subsection{Contenu du \og Project Backlog \fg initial}
+	\subsection{Contenu du backlog du 1\ier{} sprint}
+	\subsection{Diagrammes de séquences}
+	\subsection{Architecture du système}
+
+	\subsection{Modèles de conception}
+	Beaucoup de design patterns sont abstraits par les frameworks qui ont été choisis pour le projet, donc nous nous sommes limités ici à ceux qui seront utilisés explicitement.
+	\paragraph{Dependency injection} Le framework Spring repose fortement sur l’injection de dépendance et nous l’utiliserons à son maximum. Il suffit d’ajouter l’annotation @AutoWired à un membre pour indiquer à Spring qu’il doit injecter la valeur et le reste se fait automatiquement.
+	\paragraph{Singleton} Dans Spring, ce pattern va de pair avec l’injection de dépendance. En effet, pour injecter la bonne dépendance, Spring cherche une fonction annotée @Bean qui retourne un objet du bon type. Par défaut cet objet sera réutilisé pour toutes les injections et est donc de fait un singleton. 
+	\paragraph{MVC} Notre architecture fait un fort usage du design pattern MVC. En effet, notre vue est l’application mobile qui ne contient pas de logique d’affaire et communique avec les contrôleurs du backend avec des modèles précis sérialisés en JSON. 
