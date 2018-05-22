@@ -1,0 +1,76 @@
+% Minimal Packages
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype, lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{pdfpages}
+\usepackage{palatino}
+
+% Page Layout
+\usepackage[top=2.54cm, bottom=2.54cm, right=3.17cm, left=3.17cm]{geometry}
+\usepackage{
+	setspace,
+	titlesec,
+	etoolbox,
+	multirow,
+	caption,
+	multicol,
+	subfig,
+	float,
+	makecell,
+	pdflscape,
+	rotating,
+	enumerate,
+	amssymb}
+
+% Tiks Figures
+\usepackage{xcolor, tikz}
+\usetikzlibrary{babel} % Conciliation babel et tikz
+
+% Table Fix
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Mathematics
+\usepackage{siunitx}
+\sisetup{locale=FR}
+\usepackage{
+	amsmath,
+	xfrac,
+	commath,
+	units,
+	icomma,
+	cancel}
+\numberwithin{equation}{section}
+
+% Lorem Ipsum
+\usepackage{chngcntr} % wtf... aucune idée
+\counterwithin{figure}{section}
+\usepackage{lipsum} % Faux-texte
+\newcommand{\lipsumC}{\lipsum[\value{lipsumCTR}] \stepcounter{lipsumCTR}}
+\newcounter{lipsumCTR} \setcounter{lipsumCTR}{1}
+
+% University Layout
+\titlespacing*{\section}{0pt}{18pt}{12pt} % IEEE standard
+\titlespacing*{\subsection}{0pt}{12pt}{12pt} % IEEE standard
+\titlespacing*{\subsubsection}{0pt}{12pt}{12pt} % IEEE standard
+
+\newcommand{\ohs}{\onehalfspacing} % IEEE standard
+\renewcommand{\theequation}{\thesection-\arabic{equation}} % IEEE standard
+\renewcommand{\thefigure}{\thesection-\arabic{figure}} % IEEE standard
+\renewcommand{\thetable}{\thesection-\arabic{table}} % IEEE standard
+\addto\captionsfrench{\def\tablename{\sc{Tableau}}} % Renommer les tableaux
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{} % Renommer la bibliographie
+
+%: My Own Commands
+\newcommand{\cip}[1]{#1}
+\newcommand{\nomF}[1]{\textsc{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\membre}[3]{\texttt{#3} & #1 \textsc{#2} \\}
+
+\def \titreRapport {Titre du rapport}
+\def \dateRemise {Date de remise}
+\def \titreProjet {Projet DEGEL}
+\def \numeroIteration {\# iteration}
+
