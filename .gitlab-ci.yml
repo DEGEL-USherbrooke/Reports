@@ -5,7 +5,7 @@ image: blang/latex
 
 build:
   script:
-    - latexmk -pdf main.tex
+    - latexmk -pdf Rapport_map.tex
   artifacts:
     paths:
       - "main.pdf"
