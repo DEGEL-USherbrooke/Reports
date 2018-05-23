@@ -8,4 +8,4 @@ build:
     - latexmk -pdf Rapport_map.tex
   artifacts:
     paths:
-      - "main.pdf"
+      - "*.pdf"
