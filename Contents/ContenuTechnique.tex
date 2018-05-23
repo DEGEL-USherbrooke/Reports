@@ -47,18 +47,25 @@
 	\end{longtable}
 
 	\subsection{Diagrammes de séquences}
-	Lorsque l’utilisateur veut utiliser le service, ce dernier valide son identité auprès du système d'authentification, lequel demande et vérifie avec les serveur CAS les informations de connexion de l'utilisateur.  Le serveur CAS renvoie un \emph{token} qui est remis au service. Pour faire durer la connexion, le système d’authentification gère le \emph{token} CAS comme connexion permanente et renvoie un \emph{token} AUTH  au service. Le service utilise le token AUTH pour vérifier l’identité de l’utilisateur et valider les notifications à émettre. Lorsque le \emph{token} AUTH est valide et qu’une notifications est reçue, la notification est transmise à l’utilisateur. Le diagramme de séquences (figure~\ref{fig.sequences}) illustre ces étapes.
-	
+	Lorsque l’utilisateur veut utiliser le service, ce dernier valide son identité auprès du système d'authentification, lequel demande et vérifie avec les serveur CAS les informations de connexion de l'utilisateur.  Le serveur CAS renvoie un \emph{token} qui est remis au service. Pour faire durer la connexion, le système d’authentification gère le \emph{token} CAS comme connexion permanente et renvoie un \emph{token} AUTH  au service. Le service utilise le token AUTH pour vérifier l’identité de l’utilisateur et valider les notifications à émettre. Lorsque le \emph{token} AUTH est valide et qu’une notifications est reçue, la notification est transmise à l’utilisateur. Les diagrammes de séquences (figure~\ref{fig.sequences_auth}) et (figure~\ref{fig.sequences_notif}) illustre ces étapes.
+
 	\begin{figure}[hp]
 		\centering
-		\includegraphics[width=\textwidth]{Figures/Sequences}
+		\includegraphics[width=\textwidth]{Figures/Sequences_auth}
 		\caption{Diagramme de séquences par rapport à l'authentification à mémoire long terme}
-		\label{fig.sequences}
+		\label{fig.sequences_auth}
 	\end{figure}
-	
+
+	\begin{figure}[hp]
+		\centering
+		\includegraphics[width=\textwidth]{Figures/Sequences_notif}
+		\caption{Diagramme de séquences par rapport aux notifications}
+		\label{fig.sequences_notif}
+	\end{figure}
+
 	\subsection{Architecture du système}
 	L’architecture du système (figure~\ref{fig.architecture}) se compose en 4 parties distinctes, soient l’application mobile, le service mobile, l’authentification et le micro-service. Tout d’abord, l’application mobile permettra à un utilisateur d’Android et/ou d’iPhone d’utiliser le service mobile à partir d’une application disponible dans le magasin d’application du téléphone. En ce qui concerne le service mobile, un serveur gérera les notifications du micro-service et des autres équipes de notifications à condition que l’utilisateur soit authentifié. Pour s'authentifier, un utilisateur doit s’authentifier sur le serveur de CAS. Lorsque le token est valide et que les permissions le permettent, des micro-services peuvent être utilisés.
-	
+
 	\begin{figure}[hp]
 		\centering
 		\includegraphics[width=\textwidth]{Figures/Architecture}
@@ -71,4 +78,4 @@
 	Beaucoup de \emph{design patterns} sont abstraits par les \emph{frameworks} qui ont été choisis pour le projet, donc nous nous sommes limités ici à ceux qui seront utilisés explicitement.
 	\paragraph{Dependency injection} Le \emph{framework} Spring repose fortement sur l’injection de dépendance et nous l’utiliserons à son maximum. Il suffit d’ajouter l’annotation \code{@AutoWired} à un membre pour indiquer à Spring qu’il doit injecter la valeur et le reste se fait automatiquement.
 	\paragraph{Singleton} Dans Spring, ce pattern va de pair avec l’injection de dépendance. En effet, pour injecter la bonne dépendance, Spring recherche une fonction annotée \code{@Bean} qui retourne un objet du bon type. Par défaut, cet objet sera réutilisé pour toutes les injections et est donc de fait un \emph{singleton}.
-	\paragraph{MVC} Notre architecture fait un fort usage du \emph{design pattern} MVC. En effet, notre vue est l’application mobile qui ne contient pas de logique d’affaire et communique avec les contrôleurs du \emph{backend} avec des modèles précis sérialisés en JSON. 
+	\paragraph{MVC} Notre architecture fait un fort usage du \emph{design pattern} MVC. En effet, notre vue est l’application mobile qui ne contient pas de logique d’affaire et communique avec les contrôleurs du \emph{backend} avec des modèles précis sérialisés en JSON.
