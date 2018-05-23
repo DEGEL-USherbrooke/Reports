@@ -8,7 +8,7 @@
 		\hline
 		\csvreader[
 			head to column names,
-			late after line=\\\\,
+			late after line=\\,
 			respect leftbrace = false,
 			respect rightbrace = false]{Tables/ProjectBacklog_backend.csv}{}%
 		{\IssueID & \Title & \Labels}
@@ -23,15 +23,29 @@
 		\hline
 		\csvreader[
 			head to column names,
-			late after line=\\\\,
+			late after line=\\,
 			respect leftbrace = false,
 			respect rightbrace = false]{Tables/ProjectBacklog_mobile.csv}{}%
 		{\IssueID & \Title & \Labels}
 		\\\hline
 	\end{longtable}
 
-
 	\subsection{Contenu du backlog du 1\ier{} sprint}
+	\begin{longtable}[c]{P{0.05\textwidth}P{0.4\textwidth}P{0.4\textwidth}}
+		\caption{Project Backlog pour le premier sprint} \\
+		\hline
+		\bf ID & \bf Titre & \bf Labels \\
+		\hline
+		\hline
+		\csvreader[
+			head to column names,
+			late after line=\\,
+			respect leftbrace = false,
+			respect rightbrace = false]{Tables/ProjectBacklog_sprint1.csv}{}%
+		{\IssueID & \Title & \Labels}
+		\\\hline
+	\end{longtable}
+
 	\subsection{Diagrammes de séquences}
 	Lorsque l’utilisateur veut utiliser le service, ce dernier valide son identité auprès du système d'authentification, lequel demande et vérifie avec les serveur CAS les informations de connexion de l'utilisateur.  Le serveur CAS renvoie un \emph{token} qui est remis au service. Pour faire durer la connexion, le système d’authentification gère le \emph{token} CAS comme connexion permanente et renvoie un \emph{token} AUTH  au service. Le service utilise le token AUTH pour vérifier l’identité de l’utilisateur et valider les notifications à émettre. Lorsque le \emph{token} AUTH est valide et qu’une notifications est reçue, la notification est transmise à l’utilisateur. Le diagramme de séquences (figure~\ref{fig.sequences}) illustre ces étapes.
 	
