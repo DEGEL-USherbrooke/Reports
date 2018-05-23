@@ -1,0 +1,9 @@
+IssueID,URL,Title,State,Description,Author,Author Username,Assignee,Assignee Username,Confidential,Due Date,Created At (UTC),Updated At (UTC),Closed At (UTC),Milestone,Labels,Time Estimate,Time Spent
+1,http://s6igitlab.gel.usherbrooke.ca/degel/degel-mobile/issues/1,Integrer l'API pour l'horaire,Open,,Julien Larochelle,Larochelle000,,,No,,2018-05-22 17:35,2018-05-22 17:36,,,Horaire,0,0
+2,http://s6igitlab.gel.usherbrooke.ca/degel/degel-mobile/issues/2,Creer la vue du calendrier,Open,,Julien Larochelle,Larochelle000,,,No,,2018-05-22 17:35,2018-05-22 17:36,,,Horaire,0,0
+3,http://s6igitlab.gel.usherbrooke.ca/degel/degel-mobile/issues/3,Connexion a Expo pour les notifications,Open,,Julien Larochelle,Larochelle000,,,No,,2018-05-22 17:39,2018-05-22 17:40,,,Notification,0,0
+4,http://s6igitlab.gel.usherbrooke.ca/degel/degel-mobile/issues/4,Integration API mobile,Open,,Julien Larochelle,Larochelle000,,,No,,2018-05-22 17:39,2018-05-22 17:41,,,Notification,0,0
+5,http://s6igitlab.gel.usherbrooke.ca/degel/degel-mobile/issues/5,Handle l'affichage des notifications,Open,,Julien Larochelle,Larochelle000,,,No,,2018-05-22 17:41,2018-05-22 17:41,,,Notification,0,0
+7,http://s6igitlab.gel.usherbrooke.ca/degel/degel-mobile/issues/7,Integration API d'authentification,Open,,Julien Larochelle,Larochelle000,,,No,,2018-05-22 17:43,2018-05-22 17:44,,,Authentification,0,0
+9,http://s6igitlab.gel.usherbrooke.ca/degel/degel-mobile/issues/9,Monter le CI,Open,,Julien Larochelle,Larochelle000,,,No,,2018-05-22 17:52,2018-05-22 17:53,,,devops,0,0
+10,http://s6igitlab.gel.usherbrooke.ca/degel/degel-mobile/issues/10,Monter le CD,Open,,Julien Larochelle,Larochelle000,,,No,,2018-05-22 17:53,2018-05-22 17:53,,,devops,0,0
