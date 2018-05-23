@@ -1,6 +1,3 @@
 ###### Other ######
 .DS_Store
-.env
-data/
-application-local.yml
-.pdf
+*.pdf
