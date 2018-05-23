@@ -22,13 +22,16 @@
 	pdflscape,
 	rotating,
 	enumerate,
-	amssymb}
+	amssymb,
+	colortbl}
 
 % Tiks Figures
 \usepackage{xcolor, tikz}
 \usetikzlibrary{babel} % Conciliation babel et tikz
 
 % Table Fix
+\usepackage{longtable}
+\usepackage{csvsimple}
 \usepackage{array}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 
@@ -69,8 +72,8 @@
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\membre}[3]{\texttt{#3} & #1 \textsc{#2} \\}
 
-\def \titreRapport {MAP simple}
+\def \titreRapport {Mémoire d'approbation de projet}
 \def \dateRemise {23 mai 2018}
-\def \titreProjet {Projet DEGEL}
+\def \titreProjet {DEGEL}
 \def \numeroIteration {0.1}
 

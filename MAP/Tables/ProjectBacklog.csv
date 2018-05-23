@@ -1,0 +1,19 @@
+IssueID,URL,Title,State,Author,Author Username,Assignee,Assignee Username,Confidential,Locked,Due Date,Created At (UTC),Updated At (UTC),Closed At (UTC),Milestone,Weight,Labels,TimeEstimate,Time Spent
+38,https://gitlab.com/gitlab-org/release/tasks/issues/38,Release managers should own coordination of CE to EE merge,Open,Marin Jankovski,marin,,,No,No,,2018-01-17 11:31,2018-01-31 15:25,,,,,0,0
+39,https://gitlab.com/gitlab-org/release/tasks/issues/39,Slower rotation of Release managers,Open,Marin Jankovski,marin,,,No,No,,2018-01-17 11:58,2018-02-26 19:35,,,,,0,0
+55,https://gitlab.com/gitlab-org/release/tasks/issues/55,Document exception request process,Open,Marin Jankovski,marin,,,No,No,,2018-01-28 17:37,2018-02-08 11:08,,,,,0,0
+61,https://gitlab.com/gitlab-org/release/tasks/issues/61,Documentation changes for release process,Open,Marin Jankovski,marin,,,No,No,,2018-01-31 15:25,2018-02-01 18:05,,,,,0,0
+68,https://gitlab.com/gitlab-org/release/tasks/issues/68,Remove manual QA checklist steps from the QA template,Open,Mark Fletcher,markglenfletcher,,,No,No,,2018-02-07 14:44,2018-02-07 14:44,,,,,0,0
+150,https://gitlab.com/gitlab-org/release/tasks/issues/150,On-boarding Mek as release trainee,Open,Mek Stittri,meks,Mek Stittri,meks,No,No,,2018-04-06 14:12,2018-05-14 20:13,,,,,0,0
+155,https://gitlab.com/gitlab-org/release/tasks/issues/155,"10.3, 10.4, 10.5, and 10.6 regression rates",Open,_Ÿ‘¶ Sean McGivern _Ÿ‘¶ [back on 25 May],smcgivern,_Ÿ‘¶ Sean McGivern _Ÿ‘¶ [back on 25 May],smcgivern,No,No,,2018-04-09 15:51,2018-04-26 13:53,,,,,0,0
+169,https://gitlab.com/gitlab-org/release/tasks/issues/169,Communicating errors introduced by a new deployment,Open,Mark Fletcher,markglenfletcher,,,No,No,,2018-04-17 17:44,2018-04-19 13:45,,,,,0,0
+172,https://gitlab.com/gitlab-org/release/tasks/issues/172,Testplan for GDPR (General Data Protection Regulation) feature,Open,Victor Wu,victorwu,,,No,No,,2018-04-18 16:14,2018-05-16 15:20,,10.8,,,0,0
+173,https://gitlab.com/gitlab-org/release/tasks/issues/173,Creating RC's and patching GitLab.com,Open,Marin Jankovski,marin,,,No,No,,2018-04-19 13:19,2018-04-23 12:39,,,,,0,0
+175,https://gitlab.com/gitlab-org/release/tasks/issues/175,[Meta] Tooling improvements,Open,Marin Jankovski,marin,,,No,No,,2018-04-20 10:36,2018-05-22 14:28,,,,,0,0
+188,https://gitlab.com/gitlab-org/release/tasks/issues/188,Alessio Caiazza On-Boarding,Open,Alessio Caiazza,nolith,"Mayra Cabrera, Alessio Caiazza, Filipa Lacerda","mayra-cabrera, nolith, filipa",No,No,,2018-04-30 14:06,2018-05-14 15:10,,,,,0,0
+194,https://gitlab.com/gitlab-org/release/tasks/issues/194,Sarrah Vesselov Release Training,Open,Sarrah Vesselov,sarrahvesselov,"Mayra Cabrera, Sarrah Vesselov","mayra-cabrera, sarrahvesselov",No,No,,2018-05-01 17:17,2018-05-22 19:12,,,,,0,0
+215,https://gitlab.com/gitlab-org/release/tasks/issues/215,Outline an ideal release process,Open,Robert Speicher,rspeicher,,,No,No,,2018-05-16 03:08,2018-05-19 07:31,,,,,0,0
+222,https://gitlab.com/gitlab-org/release/tasks/issues/222,2018-05-18: 10.8.1 exception request for gitlab-org/gitlab-ce!19021,Open,Yorick Peterse,yorickpeterse,,,No,No,,2018-05-18 21:37,2018-05-22 14:02,,,,Exception request,0,0
+223,https://gitlab.com/gitlab-org/release/tasks/issues/223,"Release managers and trainees for 11.0, 11.1, 11.2, 11.3",Open,Marin Jankovski,marin,Robert Speicher,rspeicher,No,No,,2018-05-21 15:21,2018-05-21 15:21,,,,,0,0
+225,https://gitlab.com/gitlab-org/release/tasks/issues/225,Release 10.8.1,Open,Filipa Lacerda,filipa,"Mayra Cabrera, Alessio Caiazza, Filipa Lacerda, Sarrah Vesselov","mayra-cabrera, nolith, filipa, sarrahvesselov",No,No,2018-05-24,2018-05-22 10:39,2018-05-22 13:30,,10.8,,Release,0,0
+226,https://gitlab.com/gitlab-org/release/tasks/issues/226,2018-05-22: 10.8.1 exception request for gitlab-org/gitlab-ce!19087,Open,Alessio Caiazza,nolith,,,No,No,,2018-05-22 16:19,2018-05-22 16:49,,,,Exception request,0,0

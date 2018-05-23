@@ -1,46 +1,53 @@
 \section{Stratégies techniques de développement}
 	\subsection{Standard de programmation}
-	Le plus difficile aspect de l’utilisation d’un standard est de ne pas oublier de l’utiliser. Afin d’éviter ce problème, nous avons décidé d’adopter des standards de codage de base qui sont utilisés par une majorité de personnes et dont le support est bon. Nous allons également utiliser un maximum d’outils pour automatiser cette tâche.
+	Le plus difficile aspect de l’utilisation d’un standard est de ne pas oublier de l’utiliser. Afin d’éviter ce problème, nous avons décidé d’adopter des standards de programmation de base qui sont utilisés par une majorité de personnes et dont le support est bon. Nous allons également utiliser un maximum d’outils pour automatiser cette tâche.
 
-	Pour le Kotlin, nous allons utiliser le standard qui a défini par Jetbrains. Ce standard est appliqué par défaut lorsque le plugin de Kotlin est installé dans Intellij. Plusieurs éléments s’inspirent des conventions de Java. Le standard est explicité dans la documentation du langage: https://kotlinlang.org/docs/reference/coding-conventions.html. Comme tous les développeurs utiliserons Intellij, il sera relativement facile d’appliquer ce standard en utilisant le raccourci Ctrl+Shift+Alt+L.
+	Pour le Kotlin, nous allons utiliser le standard défini par Jetbrains. Ce standard est appliqué par défaut lorsque le plugin de Kotlin est installé dans IntelliJ. Plusieurs éléments s’inspirent des conventions de Java. Le standard est explicité dans la documentation du langage :
+	
+	{\centering
+	\url{https://kotlinlang.org/docs/reference/coding-conventions.html}
+	\par}
+	%
+	\noindent Comme tous les développeurs utiliserons IntelliJ, il sera relativement facile d’appliquer ce standard en utilisant le raccourci \code{Ctrl+Shift+Alt+L}.
 
-	Pour le Javascript, nous allons utiliser le formateur Prettier (https://prettier.io/). Il est très utilisé par la communauté et est supporté par de nombreux IDE. Il est possible de changer les règles de formatage au besoin, mais nous allons commencer avec les règles de base. Également, le formateur sera automatiquement roulé sur tous les fichiers du projet avant chaque commit (« pre-commit hook »). Cela permet de s’assurer que le format est toujours respecté. 
+	Pour le Javascript, nous allons utiliser le formateur Prettier (\url{https://prettier.io/}), très utilisé par la communauté et supporté par de nombreux IDE. Il est possible de changer les règles de formatage au besoin, mais nous allons commencer avec les règles de base. Également, le formateur sera automatiquement roulé sur tous les fichiers du projet avant chaque commit (\og \emph{pre-commit hook} \fg{}). Cela permet de s’assurer que le format est toujours respecté. 
 	\subsection{Gestion des revues de code}
-	Tel que mentionné, l’équipe utilisera Gitlab afin de gérer le code du projet. Chaque fonctionnalité sera développée dans sa propre branche. Lorsqu’une fonctionnalité sera terminée et prête à être ajouté au code principal, le développeur utilisera la fonctionnalité « Merge Request » de Gitlab et désignera au moins un autre membre pour effectuer une revue de code. Si les modifications sont approuvées (plusieurs itérations possibles) et que les tests passent, le code sera fusionné au code principal. Dans cette revue, nous allons vérifier tous les aspects du code de la nomenclature aux algorithmes. 
+	Tel que mentionné, l’équipe utilisera Gitlab afin de gérer le code du projet. Chaque fonctionnalité sera développée dans sa propre branche. Lorsqu’une fonctionnalité sera terminée et prête à être ajoutée au code principal, le développeur utilisera la fonctionnalité \og \emph{Merge Request} \fg{} de Gitlab et désignera au moins un autre membre pour effectuer une revue de code. Si les modifications sont approuvées (plusieurs itérations possibles) et que les tests passent, le code sera fusionné au code principal. Dans cette revue, nous allons vérifier tous les aspects du code, de la nomenclature aux algorithmes. 
 
 	Avec cette manière de procéder, aucun développeur ne peut modifier directement le code principal. On s’assure ainsi qu’aucun code non testé n’est ajouté au code principal. On réduit aussi fortement le risque de briser notre code de production et on maintient toujours un code principal qui est utilisable. 
+	
 	\subsection{Gestion des revues de design}
-	Pour chaque fonctionnalité technique importante (que nous nommerons « epics »), nous aurons d’abord une réunion de design avec les développeurs concernés afin d’établir et documenter les lignes directrices qui devront être respectées. 
+	Pour chaque fonctionnalité technique importante (que nous nommerons \og \emph{epics} \fg{}), nous aurons d’abord une réunion de design avec les développeurs concernés afin d’établir et de documenter les lignes directrices qui devront être respectées. 
 
-	Ensuite, pour chaque fonctionnalité (que nous nommerons « features »), le développeur sera responsable du design. Ce design devra être cohérent avec celui défini par l’équipe pour l’epic correspondant. Si le design n’est pas explicite ou étrange à première vue, il devra être explicité textuellement dans la merge request. Le design sera un élément sujet à critique dans la revue de code. 
+	Ensuite, pour chaque fonctionnalité (que nous nommerons \og \emph{features} \fg{}), le développeur sera responsable du design. Ce design devra être cohérent avec celui défini par l’équipe pour l’\emph{epic} correspondant. Si le design n’est pas explicite ou étrange à première vue, il devra être explicité textuellement dans le \emph{merge request}. Le design sera un élément sujet à la critique dans la revue de code. 
 
-	Finalement, nous aurons une revue de design qui sera partie intégrante de la réunion de fin de sprint afin de s’assurer du respect de la direction de design. Le but est que le code reste extensible et maintenable sur une longue période. Chaque déviation devra être documentée afin de garder une trace de l’évolution du design de l'application. 
+	Finalement, nous aurons une revue de design qui sera partie intégrante de la réunion de fin de sprint afin de s’assurer du respect de la direction de design. Le but est que le code reste extensible et soutenable sur une longue période. Chaque déviation devra être documentée afin de garder une trace de l’évolution du design de l'application. 
 
 	\subsection{Gestion des revues de correction de bogues}
-	Pour les bugfixes, tout commencera par l’ouverture d’une issue contenant notamment des étapes de reproductibilité (si possible). Lorsque le bug sera confirmé, un développeur sera assigné à sa résolution. Le processus ensuite sera très similaire à l’ajout d’une fonctionnalité ordinaire (tests, merge request, revue). Lorsque le fix sera déployé, la personne ayant ouvert le bug s’assurera du suivi en vérifiant si le bug a bien été corrigé et fermera l’issue si tel est le cas.
+	Pour les \emph{bugfixes}, tout commencera par l’ouverture d’une \emph{issue} contenant notamment des étapes de reproductibilité (si possible). Lorsque le bug sera confirmé, un développeur sera assigné à sa résolution. Le processus ensuite sera très similaire à l’ajout d’une fonctionnalité ordinaire (tests, \emph{merge request}, revue). Lorsque le \emph{fix} sera déployé, la personne ayant ouvert le bug s’assurera du suivi en vérifiant si le bug a bien été corrigé et fermera l’\emph{issue} si tel est le cas.
 
 	\subsection{Outils de développement utilisés}
 		\subsubsection{Code et issues: Gitlab}
-		Nous allons explorer les fonctionnalités afin de s’assurer que l’entièreté de la gestion de projet peut être faites à l’aide de cet outil, mais nous sommes confiants que c’est le cas.
+		Nous allons explorer les fonctionnalités afin de s’assurer que l’entièreté de la gestion de projet puisse être faite à l’aide de cet outil, mais nous sommes confiants que c’est le cas.
 		
-		Cet outil possède aussi les fonctionnalité d’intégration continue et de déploiement continue qui nous permettent de rouler nos tests automatiquement lors de chaque merge request et de mettre le programme à jour sur nos serveurs de production.
+		Cet outil possède aussi les fonctionnalités d’intégration continue et de déploiement continu qui nous permettent de rouler nos tests automatiquement lors de chaque \emph{merge request} et de mettre le programme à jour sur nos serveurs de production.
 
 		\subsubsection{Développement Kotlin}
-		\paragraph{IDE} Intellij, car c’est simplement le meilleur IDE afin un support kotlin intégré.
-		\paragraph{Dépendances et builds} Gradle, car cet outil est moderne, de plus en plus utilisé en industrie et plus agréable de maven.
-		\paragraph{Tests} junit (référence pour les tests sur la JVM) et mockito (référence pour les mocks et intégré à junit).
+		\paragraph{IDE} IntelliJ, car c’est simplement le meilleur IDE afin d'offrir un support Kotlin intégré.
+		\paragraph{Dépendances et \emph{builds}} Gradle, car cet outil est moderne, de plus en plus utilisé en industrie et plus agréable que \emph{maven}.
+		\paragraph{Tests} JUnit (référence pour les tests sur la JVM) et Mockito (référence pour les \emph{mocks} et intégré à JUnit).
 
 		\subsubsection{Développement Javascript}
-		\paragraph{IDE} Au choix, car beaucoup supportent bien javascript. Une personne devra avoir XCode et Android Studio afin de faire les builds finaux. 
-		\paragraph{Tests} Jest, car c’est la référence pour les tests en javascript.
+		\paragraph{IDE} Au choix, car beaucoup supportent bien Javascript. Une personne devra avoir XCode et Android Studio afin de faire les \emph{builds} finaux. 
+		\paragraph{Tests} Jest, car c’est la référence pour les tests en Javascript.
 		
 	\subsection{Autres stratégies}
-	Une autre stratégie de développement pour le projet sera d’utiliser des migrations pour muter automatiquement le schéma de nos base de données. En effet, ceci aura pour avantage de pouvoir gérer des versions de notre base de données et de pouvoir revenir dans un état précédent si nécessaire. Cela permet aussi d’associer des changements de schéma à des changement de code dans une MR et de les exécuter au même moment. Cela permet de garder un grand synchronisme entre la base de donnée et le code qui l’utilise. 
+	Une autre stratégie de développement pour le projet sera d’utiliser des migrations pour muter automatiquement le schéma de nos bases de données. En effet, ceci aura pour avantage de pouvoir gérer des versions de notre base de données et de pouvoir revenir dans un état précédent si nécessaire. Cela permet aussi d’associer des changements de schéma à des changement de code dans un \emph{merge request} et de les exécuter au même moment. Cela permet de garder un grand synchronisme entre la base de donnée et le code qui l’utilise. 
 
-	L’équipe tentera de limiter les changements de la base de données qui brise le code tel la suppression d’une colonne. Pour ne pas perdre de données, des migrations en trois étapes pourront être utilisés. Par exemple, pour la suppression d’une colonne, une première migration ajoute une nouvelle colonne et copie les données de l’ancienne colonne dans la nouvelle, puis une deuxième migration change le code pour utiliser la nouvelle colonne et une dernière migration supprime la vieille colonne. 
+	L’équipe tentera de limiter les changements de la base de données qui brisent le code, tel que la suppression d’une colonne. Pour ne pas perdre de données, des migrations en trois étapes pourront être utilisés. Par exemple, pour la suppression d’une colonne, une première migration ajoute une nouvelle colonne et copie les données de l’ancienne colonne dans la nouvelle, puis une deuxième migration change le code pour utiliser la nouvelle colonne et une dernière migration supprime la vieille colonne. 
 
-	Pour les diagramme l’équipe utilisera l’outil Draw.io. Cet outil est complet et permet de faire tout les sortes de diagrammes nécessaire pour le projet. 
+	Pour les diagramme l’équipe utilisera l’outil Draw.io. Cet outil est complet et permet de faire toutes les sortes de diagrammes nécessaires pour le projet. 
 
-	Finalement, la base de données sera accédé à l’aide d’un ORM. L’option de l’ORM JOOQ sera évalué. Un ORM est une solution idéal pour accéder une base de données à partir d’un langage orienté objet tel Kotlin/Java. Il faudra faire attention à la disparité objet/relationnelle.
+	Finalement, la base de données sera accédée à l’aide d’un \emph{object-relational mapping} (ORM). L’option de l’ORM JOOQ sera évalué. Un ORM est une solution idéale pour accéder une base de données à partir d’un langage orienté objet tel Kotlin/Java. Il faudra faire attention à la disparité objet-relationnel.
 
 	
