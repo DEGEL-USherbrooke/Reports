@@ -5,7 +5,7 @@ image: blang/latex
 
 build:
   script:
-    - latexmk -pdf
+    - latexmk -pdf main.tex
   artifacts:
     paths:
-      - "*.pdf"
+      - "main.pdf"
