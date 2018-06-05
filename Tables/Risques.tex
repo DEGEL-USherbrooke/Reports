@@ -1,0 +1,44 @@
+%TODO Update Risks Table
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{P{0.25\textwidth}P{0.25\textwidth}P{0.25\textwidth}ll}
+\hline
+\bf Risque & \bf Déclencheurs & \bf Plan de contingence & \bf Sévérité & \bf Probabilité \\
+\hline
+\hline
+Manque de main-d’oeuvre
+& Un des développeurs a un accident grave, ou vient à manquer pour diverses raisons
+& Les membres de l’équipe restants se réunissent pour répartir à nouveau les tâches qui étaient attribuées au développeur manquant
+& Grave
+& Moyen \\
+%
+Accès impossibles aux services de l’université
+& Un problème technique majeur survient avec les serveurs de l’UdeS
+& L’équipe prend les mesures adéquates pour informer les utilisateurs qu’un problème externe à l’application est survenu
+& Grave
+& Faible \\
+%
+Problème avec la gestion de version
+& La license Gitlab utilisée pour la gestion de version est retirée ou n’est plus valide
+& L’équipe explore les options de récupération possibles avec Gitlab
+& Grave
+& Faible \\
+%
+Perte de données dans Gitlab
+& Défaillance dans les VMs fournies
+& Toutes les \emph{issues} sont synchronisées avec un logiciel tiers (\emph{backup})
+& Moyen
+& Moyen \\
+%
+Echec aux tests d’intégration
+& Un des modules de l’application ne peut pas être intégré au reste du projet
+& L’équipe identifie les raisons de ce problème d’intégration et les développeurs en charge du module recommencent, ou d’autres développeurs se chargent de ce module
+& Moyen
+& Moyen \\
+%
+Maîtrise d’une technologie utilisée
+& Les développeurs ne parviennent pas à maîtriser le \emph{framework} React Native
+& L’équipe prend la décision de changer de \emph{framework} ou répartit à nouveau les tâches à d’autres développeurs
+& Moyen
+& Faible \\
+\hline
+\end{tabular}
