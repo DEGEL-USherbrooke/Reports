@@ -3,16 +3,13 @@
 	\subsection{Backend}
 	% commencer la comm acec CAS (abandon pour auth plus sécuritaire OAuth2), monter le projet de base (bonnes pratiques), CI, CD Docker. Setup des frameworks  (spring, ORM, Kotlin, feign)
 
-	\paragraph{Authentification} La première tentative d'authentification avec le CAS est abandonnée au profit du protocole OAuth2, car ce dernier s'avère plus sécuritaire qu'une solution \emph{maison}.
+	\paragraph{Projet de base} La structure du projet \emph{Backend} a été choisie et le projet de base a été monté. Les frameworks utilisés tels que Hibernate, FlywayDB, Feign, Swagger et Spring ont été configurés.
+
+	\paragraph{Sécurité} La première tentative d'authentification avec le CAS a été développée en utilisant la librarie Spring. Le service a été passé en HTTPS avec \emph{Letsencrypt} afin de protéger les informations des utilisateurs.
 	
-	\paragraph{Projet de base} Afin d'établir de bonnes pratiques de développement en backend, un projet de base est monté. %TODO mais encore... ?
+	\paragraph{Gitlab} Une installation pleinement fonctionnelle de GitLab a été mise en place. L'équipe utilise déjà l'intégration continue (CI) et le déploiement continu (CD) afin d'automatiser au maximum le roulement des tests et la mise à jour du serveur.
 	
-	\paragraph{CI/CD} GitLab propose des services d'intégration continue (CI) et de développement continu (CD), ce qui est à notre avantage. Recréant ainsi un milieu de développement en entreprise, l'application se conçoit de manière itérative où chaque version doit \emph{builder} et \emph{runner} conformément à des tests.
-	
-	\paragraph{Docker} %TODO Sky is the limit. Or is it your RAM... ?
-	
-	
-	\paragraph{Frameworks} En préparation du développement futur du backend, les frameworks sont configurés, tels que spring, ORM, Kotlin, feign\dots
+	\paragraph{Docker} Le projet roule entièrement dans Docker et peut être facilement déployé avec le \emph{docker-compose.yml} sur toute machine possédant Docker.
 		
 	\subsection{Mobile}
 	% application de base (bonnes pratiques, hiérarchie des fichiers), trouver un framework pour l'horaire, interagir avec une webview pour l'auth CAS, la page de settings
