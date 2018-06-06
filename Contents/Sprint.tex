@@ -1,0 +1,37 @@
+\section{État du sprint}
+	
+	\subsection{Backend}
+	% commencer la comm acec CAS (abandon pour auth plus sécuritaire OAuth2), monter le projet de base (bonnes pratiques), CI, CD Docker. Setup des frameworks  (spring, ORM, Kotlin, feign)
+
+	\paragraph{Authentification} La première tentative d'authentification avec le CAS est abandonnée au profit du protocole OAuth2, car ce dernier s'avère plus sécuritaire qu'une solution \emph{maison}.
+	
+	\paragraph{Projet de base} Afin d'établir de bonnes pratiques de développement en backend, un projet de base est monté. %TODO mais encore... ?
+	
+	\paragraph{CI/CD} GitLab propose des services d'intégration continue (CI) et de développement continu (CD), ce qui est à notre avantage. Recréant ainsi un milieu de développement en entreprise, l'application se conçoit de manière itérative où chaque version doit \emph{builder} et \emph{runner} conformément à des tests.
+	
+	\paragraph{Docker} %TODO Sky is the limit. Or is it your RAM... ?
+	
+	
+	\paragraph{Frameworks} En préparation du développement futur du backend, les frameworks sont configurés, tels que spring, ORM, Kotlin, feign\dots
+		
+	\subsection{Mobile}
+	% application de base (bonnes pratiques, hiérarchie des fichiers), trouver un framework pour l'horaire, interagir avec une webview pour l'auth CAS, la page de settings
+
+	\paragraph{Application de base} En vue de la démonstration à faire, l'équipe a développé une application offrant des services de base (vue horaire, vue mensuelle, page de réglages).
+	
+	\paragraph{Framework d'horaire} L'équipe a discuté sur le choix du framework d'horaire, notamment sur le choix entre un framework \emph{custom} ou non. S'il est \emph{custom}, comment le faire ? Sinon, lequel choisir ?
+	
+	\paragraph{Webview} L'authentification avec le serveur CAS se déroulera via une webview directement dans l'application. L'équipe s'est donc penchée sur l'intégration et les interactions possibles avec ce qu'il y a derrière une webview quant à l'authentification (récupération de tokens, de cookies, etc.).	
+	
+	\paragraph{Réglages} Une première page de réglages est développée sur l'application et prête pour la démonstration. Il s'agit encore d'une version préliminaire.
+	
+	\subsection{Gestion}
+	% setup GITLab pour la gestion (abandon pour manque de fonctions). JIRA désormais, reports collaboratif sur Gitlab avec CI
+
+	\paragraph{GitLab} La plateforme GitLab est abandonnée en ce qui concerne la gestion des tâches en raison des limitations de sa version gratuite (une seule personne assignée, un seul réviseur, graphes manquants).
+	
+	\paragraph{JIRA} La plateforme JIRA remplace GitLab pour la gestion des tâches. Elle offre exactement ce que l'équipe recherchait pour (entre autres) regrouper les tâches en catégories et en sprints.
+	
+	\paragraph{Rapports} GitLab demeure la plateforme de rédaction des rapports en \LaTeX. Désormais, chaque personne peut écrire sa partie de rapport et la pusher dans GitLab sans avoir à compiler localement. GitLab s'occupe de générer le PDF.
+	
+	
