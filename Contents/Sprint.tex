@@ -1,35 +1,32 @@
-\section{État du sprint}
-	
-	\subsection{Backend}
-	% commencer la comm acec CAS (abandon pour auth plus sécuritaire OAuth2), monter le projet de base (bonnes pratiques), CI, CD Docker. Setup des frameworks  (spring, ORM, Kotlin, feign)
+\subsubsection{Backend}
+% commencer la comm acec CAS (abandon pour auth plus sécuritaire OAuth2), monter le projet de base (bonnes pratiques), CI, CD Docker. Setup des frameworks  (spring, ORM, Kotlin, feign)
 
-	\paragraph{Projet de base} La structure du projet \emph{Backend} a été choisie et le projet de base a été monté. Les frameworks utilisés tels que Hibernate, FlywayDB, Feign, Swagger et Spring ont été configurés.
+\paragraph{Projet de base} La structure du projet \emph{backend} a été choisie et le projet de base a été monté. Les frameworks utilisés tels que Hibernate, FlywayDB, Feign, Swagger et Spring ont été configurés.
 
-	\paragraph{Sécurité} La première tentative d'authentification avec le CAS a été développée en utilisant la librarie Spring. Le service a été passé en HTTPS avec \emph{Letsencrypt} afin de protéger les informations des utilisateurs.
-	
-	\paragraph{Gitlab} Une installation pleinement fonctionnelle de GitLab a été mise en place. L'équipe utilise déjà l'intégration continue (CI) et le déploiement continu (CD) afin d'automatiser au maximum le roulement des tests et la mise à jour du serveur.
-	
-	\paragraph{Docker} Le projet roule entièrement dans Docker et peut être facilement déployé avec le \emph{docker-compose.yml} sur toute machine possédant Docker.
-		
-	\subsection{Mobile}
-	% application de base (bonnes pratiques, hiérarchie des fichiers), trouver un framework pour l'horaire, interagir avec une webview pour l'auth CAS, la page de settings
+\paragraph{Sécurité} La première tentative d'authentification avec le CAS a été développée en utilisant la librairie Spring. Le service a été passé en HTTPS avec \emph{Let's Encrypt} afin de protéger les informations.
 
-	\paragraph{Application de base} L'équipe a développé une itération fonctionnelle de l'application capable de démontrer la faisabilité de la plupart des fonctionnalités finales. D'abord une vue calendrier est fonctionnelle avec des données de test enregistrées dans le téléphone. Ensuite, une vue paramètre possède des boutons glissoirs et poussoirs. En addition, il est possible d'alterner entre les deux vues à l'aide d'onglets au bas de l'écran.
+\paragraph{Gitlab} L'équipe utilise déjà l'intégration continue (CI) et le déploiement continu (CD) afin d'automatiser au maximum le roulement des tests et la mise à jour du serveur.
+
+\paragraph{Docker} Le projet roule entièrement dans Docker et peut être facilement déployé avec le \emph{docker-compose.yml} sur toute machine possédant Docker.
 	
-	\paragraph{Framework d'horaire} L'équipe a eu plusieurs rencontres de conception pour décider si un \emph{plugin} allait être utilisé ou non pour faire le calendrier. Le débat est toujours en cours, cependant l'équipe penche de plus en plus pour utiliser un \emph{plugin}.
+\subsubsection{Mobile}
+% application de base (bonnes pratiques, hiérarchie des fichiers), trouver un framework pour l'horaire, interagir avec une webview pour l'auth CAS, la page de settings
+
+\paragraph{Application de base} Une vue \emph{calendrier} est fonctionnelle avec des données de test enregistrées dans le téléphone. Une vue \emph{paramètres} possède des boutons de configuration.
+
+\paragraph{Framework d'horaire} L'équipe a eu plusieurs rencontres de conception pour décider si un \emph{plugin} (et lequel) allait être utilisé ou non pour faire le calendrier. 
+
+\paragraph{Webview} L'authentification avec le serveur CAS se déroulera via une \emph{webview} directement dans l'application. L'application récupérera les données (tokens) directement dans la \emph{webview}.
+
+%\paragraph{Réglages} Une première page de réglages est développée sur l'application et prête pour la démo.
+
+\subsubsection{Gestion}
+% setup GITLab pour la gestion (abandon pour manque de fonctions). JIRA désormais, reports collaboratif sur Gitlab avec CI
+
+\paragraph{GitLab} La plateforme GitLab est abandonnée en ce qui concerne la gestion des tâches en raison des limitations de sa version gratuite.
+
+\paragraph{JIRA} La plateforme JIRA remplace GitLab pour la gestion des tâches. Elle offre exactement ce que l'équipe recherchait pour (entre autres) regrouper les tâches en catégories et en sprints.
+
+\paragraph{Rapports} GitLab demeure la plateforme de rédaction des rapports en \LaTeX. Désormais, chaque personne peut écrire sa partie de rapport et la \emph{pusher} dans GitLab sans avoir à compiler localement.
 
 
-	\paragraph{Webview} L'authentification avec le serveur CAS se déroulera via une \emph{webview} directement dans l'application. L'équipe s'est donc penchée sur l'intégration et les interactions possibles avec ce qu'il y a derrière une \emph{webview} quant à l'authentification. Notemment la récupération des données dans la \emph{webview} est un élément critique du projet.
-	
-	\paragraph{Réglages} Une première page de réglages est développée sur l'application et prête pour la démonstration.
-	
-	\subsection{Gestion}
-	% setup GITLab pour la gestion (abandon pour manque de fonctions). JIRA désormais, reports collaboratif sur Gitlab avec CI
-
-	\paragraph{GitLab} La plateforme GitLab est abandonnée en ce qui concerne la gestion des tâches en raison des limitations de sa version gratuite (une seule personne assignée, un seul réviseur, graphes manquants).
-	
-	\paragraph{JIRA} La plateforme JIRA remplace GitLab pour la gestion des tâches. Elle offre exactement ce que l'équipe recherchait pour (entre autres) regrouper les tâches en catégories et en sprints.
-	
-	\paragraph{Rapports} GitLab demeure la plateforme de rédaction des rapports en \LaTeX. Désormais, chaque personne peut écrire sa partie de rapport et la pusher dans GitLab sans avoir à compiler localement. GitLab s'occupe de générer le PDF.
-	
-	
