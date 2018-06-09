@@ -4,7 +4,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{microtype, lmodern}
 \usepackage[hidelinks]{hyperref}
-\usepackage{pdfpages}
 \usepackage{palatino}
 
 % Page Layout
@@ -22,27 +21,17 @@
 	pdflscape,
 	rotating,
 	enumerate,
-	amssymb}
+	amssymb,
+	comment}
 
 % Tiks Figures
 \usepackage{xcolor, tikz}
 \usetikzlibrary{babel} % Conciliation babel et tikz
+\usetikzlibrary{mindmap,trees}
 
 % Table Fix
 \usepackage{array}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
-
-% Mathematics
-\usepackage{siunitx}
-\sisetup{locale=FR}
-\usepackage{
-	amsmath,
-	xfrac,
-	commath,
-	units,
-	icomma,
-	cancel}
-\numberwithin{equation}{section}
 
 % Lorem Ipsum
 \usepackage{chngcntr} % wtf... aucune idée
