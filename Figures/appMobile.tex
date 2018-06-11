@@ -1,0 +1,61 @@
+\begin{tikzpicture}
+  \path[mindmap, grow cyclic,
+    every node/.style=concept, concept color=black,text=white,
+    level 1/.append style={level distance=5cm,sibling angle=90},
+    level 2/.append style={level distance=3cm,sibling angle=50},
+    level 3/.append style={level distance=2.5cm,sibling angle=40},]
+%
+    node {App mobile \\ vs \\ site web}
+    child[concept color=green!50!black] { node {Portabilité \\ Usage sans internet}
+      child { node {Étudiants \\ Professeurs} }
+      child { node {Usage plus fréquent ?} }
+      child { node {Social}
+        child { node {Comment réduire absentéisme ?} }
+        child { node {Comment étudiants vérifient horaire ?} }
+      }
+    }  
+    child[concept color=orange] { node {Capture d'attention}
+      child { node {Étudiants \\ Professeurs} }
+      child { node {Rétention ?} }
+      child { node {Social}
+        child { node {Où est l'équilibre ?} }
+        child { node {Concision de l'information} }
+        child { node {Limiter animations} }
+      }
+      child { node {Éthique}
+        child { node {Interface genrée ? } }
+        child { node {Consulter groupe LGBTQ+} }
+      }
+    }
+    child[concept color=blue] { node {Expérience utilisateur \\ Rapidité}
+      child { node {Étudiants \\ Professeurs} }
+      child { node {Usage plus agréable, inclusif} }
+      child { node {Éthique}
+        child { node {Manquer examen le weekend ?} }
+        child { node {Vérifier info actuelle} }
+      }
+      child { node {Éthique}
+        child { node {Interface genrée ? } }
+        child { node {Consulter groupe LGBTQ+} }
+      }
+    }
+    child[concept color=red] { node {Développement \\ Intégration \\ Maintenance}
+      child { node {Responsables sécurité} }
+      child { node {Possibles failles ?} }
+      child { node {Légal}
+        child { node {Comment sécuriser ?} }
+        child { node {Bonnes pratiques} }
+        child { node {Consulter experts} }
+      }
+      child { node {Tech info}
+	    child { node {Plus de travail} }
+    	child { node {Compétences ?} }
+      }
+      child { node {Économique}
+        child { node {Minimiser coûts maintenance } }
+        child { node {Choix langages} }
+        child { node {Bonnes pratiques} }
+        child { node {Doc} }
+      }
+    };
+\end{tikzpicture}
