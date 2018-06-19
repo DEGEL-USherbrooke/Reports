@@ -4,16 +4,28 @@
 
 \begin{document}
 
+	% Title Page
 	\input{titlepage}
 
+	% Empty pages after title page	
+	\shipout\null
+	\shipout\null
+
+	% Table of Contents
 	\pagenumbering{roman}
 	\tableofcontents
 	\clearpage
+	
+	% Avoid printing behind the table of contents
+	\shipout\null
 
+	% Back to normal numbers (1, 2, 3, ...)
     \pagenumbering{arabic}
 
+	% Line Space = 1.5
     \onehalfspacing
 
+		% Content with new page at each inclusion
 		\include{Contents/Introduction}
 		\include{Contents/Presentation}		
 		\include{Contents/AxesInnovants_PartiesPrenantes}
