@@ -1,0 +1,11 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname fonteauteurs\endcsname\relax
+\def\fonteauteurs{\scshape}\fi
+
+\bibitem{LEPP2014343}
+
+
+\bibitem{TAVOLACCI2016S254}
+
+
+\end{thebibliography}
