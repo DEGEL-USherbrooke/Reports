@@ -8,8 +8,8 @@
 	\input{titlepage}
 
 	% Empty pages after title page	
-	\shipout\null
-	\shipout\null
+%	\shipout\null
+%	\shipout\null
 
 	% Table of Contents
 	\pagenumbering{roman}
@@ -17,7 +17,7 @@
 	\clearpage
 	
 	% Avoid printing behind the table of contents
-	\shipout\null
+%	\shipout\null
 
 	% Back to normal numbers (1, 2, 3, ...)
     \pagenumbering{arabic}
@@ -32,6 +32,7 @@
 		\include{Contents/Impacts_Enjeux}
 		\include{Contents/Connaissances}
 		\include{Contents/Integration}
+		\include{Contents/Conclusion}
 		
 		\section{Bibliographie}
 		\nocite{*}
