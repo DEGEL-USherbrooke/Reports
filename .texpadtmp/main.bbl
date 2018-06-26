@@ -31,6 +31,10 @@ B.~\bgroup\fonteauteurs\bgroup Mart{\'\i}nez-P{\'e}rez\egroup\egroup{},
   recommendations\fg{},  {\em Journal Of Medical Systems}, vol.~39, no.~1,
   p.~181, 2015.
 
+\bibitem{dataBreach}
+T.~\bgroup\fonteauteurs\bgroup Armerding\egroup\egroup{}, \og The 17 biggest
+  data breaches of the 21st century\fg{},  {\em CSO}, Janvier 2018.
+
 \bibitem{visuallyImpaired}
 N.~\bgroup\fonteauteurs\bgroup Griffin-Shirley\egroup\egroup{}, D.~R.
   \bgroup\fonteauteurs\bgroup Banda\egroup\egroup{}, P.~M.
@@ -42,6 +46,11 @@ N.~\bgroup\fonteauteurs\bgroup Griffin-Shirley\egroup\egroup{}, D.~R.
   of mobile applications for people who are visually impaired\fg{},  {\em
   Journal of Visual Impairment \& Blindness}, vol.~111, no.~4, p.~307 -- 323,
   2017.
+
+\bibitem{genderNeutral}
+D.~\bgroup\fonteauteurs\bgroup Barth\egroup\egroup{}, \og Designing the
+  gender-neutral user experience\fg{}.  Worcester Polytechnic Institute, April
+  2012.
 
 \bibitem{kenya}
 R.~\bgroup\fonteauteurs\bgroup Ojino\egroup\egroup{} et

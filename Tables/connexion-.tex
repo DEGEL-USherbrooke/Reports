@@ -10,19 +10,19 @@
 	& Assurer la cohérence des permissions
 	& Jetons de coure durée
 	\\
-	\multirow{2}{0.15\textwidth}[-3em]{Fuite possible d'informations}
-	& \begin{itemize}
+	\multirow{2}{0.15\textwidth}[-4.5em]{Fuite possible d'informations}
+	& \tikzmark[xshift=-8pt,yshift=-1ex]{x} \begin{itemize}
 		\item Étudiants
 		\item Équipe professorale
 	\end{itemize}
 	& Perte de contrôle des informations confidentielles
-	& Légal : respect de la vie privée
-	&\multirow{2}{0.15\textwidth}[-3em]{Comment maintenir l'étanchéité du réseau informatique ?}
+	& Légal : respect de la vie privée \hfill \tikzmark[xshift=-4pt,yshift=4ex]{m}
+	& \multirow{2}{0.15\textwidth}[-3em]{Comment maintenir l'étanchéité du réseau informatique ?}
 	&\multirow{2}{0.15\textwidth}[-3em]{Être capable de révoquer des jetons}
 	\\
-	& Responsable de la sécurité et du réseau informatique
+	& \tikzmark[xshift=-8pt,yshift=-6ex]{y} Responsable de la sécurité et du réseau informatique
 	& Atteinte à la réputation 
-	& Économique : taux d'inscription
+	& Économique : taux d'inscription \hfill \tikzmark[xshift=-4pt,yshift=0ex]{n}
 	\\
 	Intégration plus difficile
 	& Responsable Horarius
@@ -39,3 +39,6 @@
 	\\
 	\hline
 \end{tabular}
+
+\drawbrace[brace mirrored, thick]{x}{y}
+\drawbrace[brace, thick]{m}{n}

@@ -27,7 +27,22 @@
 % Tiks Figures
 \usepackage{xcolor, tikz}
 \usetikzlibrary{babel} % Conciliation babel et tikz
-\usetikzlibrary{mindmap,trees}
+
+% Braces into Tables
+\usetikzlibrary{decorations.pathreplacing,calc}
+
+\newcommand{\tikzmark}[2][-3pt]{\tikz[remember picture, overlay, baseline=-0.5ex]\node[#1](#2){};}
+
+\tikzset{brace/.style={decorate, decoration={brace}},
+ brace mirrored/.style={decorate, decoration={brace,mirror}},
+}
+
+\newcounter{brace}
+\setcounter{brace}{0}
+\newcommand{\drawbrace}[3][brace]{%
+ \refstepcounter{brace}
+ \tikz[remember picture, overlay]\draw[#1] (#2.center)--(#3.center)node[pos=0.5, name=brace-\thebrace]{};
+}
 
 % Table Fix
 \usepackage{array}

@@ -10,14 +10,21 @@
 	& Où est l'équilibre ?
 	& Limiter les animations, information concise et précise
 	\\
-	\multirow{2}{0.15\textwidth}[-2em]{Temps de développement, intégration, maintenance}
-	& Responsable de la sécurité
+	\multirow{2}{0.15\textwidth}[-1em]
+	{
+		\begin{itemize}
+			\item Temps de développement
+			\item Intégration
+			\item Maintenance
+		\end{itemize}
+	}
+	& \tikzmark[xshift=-8pt,yshift=1ex]{x} Responsable de la sécurité
 	& Possibles failles ?
 	& Légal : fuites d'informations confidentielles
 	& Comment sécuriser ?
 	& Bonnes pratiques, consultation d'experts
 	\\
-	& Techniciens informatiques
+	& \tikzmark[xshift=-8pt,yshift=-4ex]{y} Techniciens informatiques
 	& Plus de travail, ont-ils les compétences ?
 	& Économique : embauche, plus de temps
 	& Minimiser les coûts de maintenance
@@ -25,3 +32,5 @@
 	\\
 	\hline
 \end{tabular}
+
+\drawbrace[brace mirrored, thick]{x}{y}
