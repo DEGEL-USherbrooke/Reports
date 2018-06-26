@@ -1,8 +1,10 @@
 \subsubsection{Backend}
-Emile manque de sommeil à cause de l'OAuth2.
+
+	\paragraph{Intégration avec l'équipe de notifications} L'autre équipe pourrait ne pas être prête à temps. Il faudra donc contourner leur système en attendant (pont temporaire).
+	
+	\paragraph{Serveurs Horarius} Les serveurs Horarius pourraient tomber si trop d'étudiants s'y connectent au même moment. Il faut donc limiter le nombre d'appels par minute et utiliser la cache locale de notre serveur le plus possible.
 
 \subsubsection{Mobile}
-L'internationalisation n'est pas aussi simple qu'annoncé. L'application sera donc disponible seulement en français (comme toutes les applications de l'université).
-
-\subsubsection{Gestion}
-L'entrée des heures sur JIRA se porte mieux, mais l'équipe aurait fort intérêt à le faire encore plus rigoureusement afin que les courbes reflètent encore plus fidèlement la réalité.
+	\paragraph{Internationalisation} La librairie utilisée engendre une erreur de corruption de données dans certains cas lorsqu'on réécrit au même endroit. On pourrait donc utiliser un \emph{store} en mémoire (au lieu du disque) et se servir d'une autre libraire à cette fin.
+	
+	\paragraph{Gestion de la mémoire} Il faut bien gérer le nombre d'évènements (passés et futurs) en mémoire pour ne pas surcharger le téléphone.
