@@ -1,0 +1,16 @@
+\begin{tikzpicture}\tikzstyle{every node}=[font=\small]
+\node[draw, minimum height=2cm, minimum width=2cm] (build) at (0,0) {Build};
+\node[draw, minimum height=2cm, minimum width=2cm] (test) at (3,0) {Test};
+\node[draw, minimum height=2cm, minimum width=2cm] (release) at (6,0) {Release};
+\node[draw, minimum height=2cm, minimum width=2cm] (deploy) at (9,0) {Deploy};
+%%%%%%%%%%%%%
+\draw[-latex] (build) -- (test);
+\draw[-latex] (test) -- (release);
+\draw[-latex] (release) -- (deploy);
+%%%%%%%%%%%%%
+\draw[thick, orange] (-2,-2.5) -- (-2,2.5) -- (11,2.5) -- (11,-2.5) -- (-2,-2.5);
+\draw[thick, red] (-1.5,-1.75) -- (-1.5,1.75) -- (4.5,1.75) -- (4.5,-1.75) -- (-1.5,-1.75);
+%%%%%%%%%%%%%
+\node[anchor=north west, orange] at (-2,2.5) {Master};
+\node[anchor=north west, red] at (-1.5,1.75) {Commit};
+\end{tikzpicture}

@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+\node[draw, minimum height=2cm, minimum width=2cm] (internet) at (0,0) {Internet};
+\node[draw, minimum height=2cm, minimum width=2cm] (nginx) at (3,0) {nginx};
+\node[draw, minimum height=2cm, minimum width=2cm] (server) at (6,0) {Server};
+\node[draw, minimum height=2cm, minimum width=2cm] (db) at (9,0) {Database};
+\node[draw, minimum height=2cm, minimum width=2cm, align=center] (lets) at (3,2.5) {Lets \\ Encrypt};
+%%%%%%%%%%%%%
+\draw[-latex] (internet) -- (nginx);
+\draw[-latex] (nginx) -- (server);
+\draw[-latex] (server) -- (db);
+\draw[latex-latex] (nginx) -- (lets);
+%%%%%%%%%%%%%
+\draw (1.5,-1.5) -- (1.5,4) -- node[midway, below] {{\bfseries Docker-Compose}} (10.5,4) -- (10.5,-1.5) -- (1.5,-1.5);
+\end{tikzpicture}

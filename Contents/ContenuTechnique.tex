@@ -1,32 +1,218 @@
 \section{Contenu technique}
-\lipsumC
-
     \subsection{Cas d'utilisation}
-    \lipsumC
+    Le premier cas d'usage consiste à une application d'horaire spécialement conçue pour les étudiants en génie de l'Université de Sherbrooke. La simplicité, la mobilité et l'accessibilité de la gestion d'horaire sont les caractéristiques principales du premier cas d'usage. En effet, l'application mobile permet à l'étudiant de visualiser son horaire et de recevoir des notifications en cas de changement d'horaire. L'utilisateur a le choix de plusieurs paramètres pour personnaliser la manière dont les notifications seront reçue. La figure suivante résume le premier cas d'utilisation :
     
-    \subsection{Architecture du système}
-    \lipsumC
-    
+    \begin{figure}[p] \centering
+%        \includegraphics[width=\textwidth]{Figures/casUsage1}
+        \input{Figures/casUsage1}
+        \caption{Diagramme du premier cas d'usage de l'application}
+        \label{fig.casUsage1}
+    \end{figure}
+
+    Le deuxième cas d'usage consiste à une plateforme de communication sociale entre les étudiants et les professeurs. Présentement, il n'y a que le changement d'horaire qui est lié à cette forme de communication, mais l'infrastructure de l'application permet l'intégration de notifications tierces. À cet effet, la communication d'éléments jugés importants par l'équipe professorale peut être envoyée au centre de notification de l'application dans le but de divulguer cette information aux étudiants concernés. La figure suivante illustre les 3 acteurs principaux ainsi que leurs rôles en ce qui concerne le deuxième cas d'utilisation :
+
+    \begin{figure}[p] \centering
+%        \includegraphics[width=\textwidth]{Figures/casUsage2}
+        \input{Figures/casUsage2}
+        \caption{Diagramme du second cas d'usage de l'application}
+        \label{fig.casUsage2}
+    \end{figure}
+
+    On distingue trois types d'utilisateurs :
+    \begin{description}
+        \item[Un(e) étudiant(e) de l'université de Sherbrooke] Il s'agit des utilisateurs les plus nombreux. On cherchera à maximiser la transparence de l'application pour ces utilisateurs afin qu'ils puissent se connecter et déconnecter, consulter les horaires de cours, recevoir les notifications et enfin modifier les paramètres associées à ces mêmes notifications, le tout sans obtenir de détails sur le fonctionnement interne du système.
+        \item[Un administrateur du système] qui devra s'authentifier et qui aura accès à toutes les permissions des utilisateurs et qui sera également en mesure d'envoyer des notifications à l'application
+        \item[L'équipe de notification] Le système se voulant être distribué et modulaire, un type d'utilisateur est réservé pour les autre équipes de projet qui sont susceptibles de gérer des notifications et les envoyer à notre application. Ce type d'utilisateur particulier devra s'authentifier comme les autres et n'aura accès qu'à une partie restreinte du système, lui accordant la permission d'envoyer des notifications.
+    \end{description}
+
     \subsection{Design patterns utilisés}
-    \lipsumC
+    La structure du code de ce projet suit plusieurs design patterns différent. Pour ce qui est du système dans son ensemble, le pattern \emph{Model View Controller} a été appliqué : l'application mobile fait office de vue en présentant l'information dans son interface, la base de donnée est le modèle qui contient les données et communique à l'aide d'entités avec le serveur. Le backend fait le lien entre la vue et le modèle en tant que contrôleur à l'aide de data objets sérialisés en JSON.
+
+    Concernant le backend, l'utilisation du framework Spring et son fonctionnement par annotations nous obligent à utiliser l'\emph{injection de dépendances} avec les balises @AutoWired et le \emph{Singleton} (@Bean), car il va de pair avec l'injection de dépendances.
+
+    Enfin, afin de permettre un filtrage des modifications d'horaires et ne garder que des notifications d'événements à venir, nous avons mis en place un patron de spécification, ou criteria pattern. Cela se veut une chaîne de critères dans laquelle passe les événements et seulement la sortie est utilisée pour envoyer les notifications. Les critères implémentés sont notamment l'élimination des événements passés et ceux qui sont plus d'un mois dans le futur.
+
+    \subsection{Architecture du système}
+    \begin{figure}[hp] \centering
+%        \includegraphics[width=\textwidth]{Figures/architectureSysteme}
+        \input{Figures/architectureSysteme}
+        \caption{Diagramme de l'architecture du système}
+        \label{fig.architectureSysteme}
+    \end{figure}
     
+    L'architecture du système est divisée en différentes sections :
+    \begin{description}
+        \item[Éléments bleus] Services internes à l'Université
+        \item[Éléments rouges] Services externes à l'Université
+        \item[Éléments verts] Services fournis par l'équipe DEGEL
+    \end{description}
+
+    Les services fournis par DEGEL sont les suivants:
+    \begin{description}
+        \item[Authentification] C'est le module qui regroupe tout ce qui touche de près ou de loin à l'authentification CAS et OAuth2. C'est également dans ce module qu'on peut gérer les permissions des utilisateurs.
+        \item[Horaire] Ce module s'occupe des communications avec horarius. Il gère les clés des utilisateurs et vérifie les changements d'horaire.
+        \item[Notifications mobiles] Ce module reçoit les requêtes de l'équipe de notifications qui proviennent soit du module d'horaire, soit d'autres services externes. Il communique les notification aux utilisateurs par le biais des serveurs de Facebook (Expo).
+    \end{description}
+
     \subsection{Modèle d'architecture logicielle}
-    \lipsum
+        \subsubsection{Backend}
+        \begin{figure}[hp] \centering
+%            \includegraphics[width=\textwidth]{Figures/architectureBackend}
+            \input{Figures/architectureBackend}
+            \caption{Diagramme de l'architecture du backend}
+            \label{fig.architectureBackend}
+        \end{figure}
+        
+        Pour le backend, l'architecture choisie est le modèle en couches :
+        \begin{description}
+            \item[Controllers] Ils définissent les endpoints et les permissions associées à ceux-ci. Ils contiennent peu ou aucune logique d'affaire.
+            \item[Services] C'est dans ceux-ci que la grande majorité de la logique d'affaire se retrouve. Ainsi, les tests se concentrent sur eux.
+            \item[Repositories] C'est la couche ORM de l'application qui permet l'accès aux données persistantes.
+            \item[Database] C'est l'instance qui s'occupe des données, postgres dans notre cas.
+        \end{description}
+
+        Il y a également deux autres parties secondaires dans le modèle :
+        \begin{description}
+            \item[Tasks] C'est l'ensemble des tâches qui roulent en arrière-plan pour notamment aller chercher les modifications aux horaires.
+            \item[Clients] Ceux-ci permettent de communiquer à d'autres services par HTTP.
+        \end{description}
+
+        Notons que les couches \emph{Services} et \emph{Repositories} communiquent entre elles avec des \emph{Entities} qui sont liées aux tables de la base de données. Ces entités sont transformées dans les services en Models (et vice-versa). Les services et les contrôleurs communiquent à l'aide de ces modèles.
+        
+        \subsubsection{Mobile}
+        \begin{figure}[hp]
+%            \fbox{\includegraphics[width=0.5\textwidth]{Figures/architectureMobile}}
+            \dirtree{%
+            .1 BL. 
+            .2 \_\_test\_\_. 
+            .3 /* degelClient.test.js. 
+            .3 /* session.test.js. 
+            .2 /* degelClient.js. 
+            .2 /* session.js. 
+            .2 /* storageHelper.js. 
+            .1 components. 
+            .1 constants. 
+            .1 locales. 
+            .1 navigation. 
+            .1 screens. 
+            }
+            \caption{Arborescence de l'architecture mobile}
+            \label{fig.architectureMobile}
+        \end{figure}        
+        
+        Pour l'architecture mobile, l'ensemble tourne principalement autour des composantes de la partie vue de notre pattern MVC :
+        \begin{description}
+            \item[Components] Parties visuelles réutilisables un peu partout dans l'application.
+            \item[Screens] Les différentes vues qui seront présentées à l'utilisateur.
+            \item[Navigation] L'agencement des différentes vues et les conditions pour passer d'une à l'autre.
+        \end{description}
+
+        Il y également trois autres parties :
+        \begin{description}
+            \item[Constants] Utile pour regrouper l'ensembles des constantes de l'application comme l'URL du serveur.
+            \item[Locales] L'application étant localisée, tous les textes (français et anglais) sont contenus dans ce fichier.
+            \item[BL] La petite partie de logique d'affaire de l'application notamment pour communiquer avec le serveur. C'est principalement cette partie qui sera testée.
+        \end{description}
     
     \subsection{Modèle conceptuel de données}
-    \lipsumC
+    Le modèle reste relativement très simple. D'abord, nous avons quatre entités indépendantes qui sont requises par Spring :
+    \begin{description}
+        \item[flyway\_schema\_history] Contient l'histoire des migrations SQL effectuées.
+        \item[oauth\_refresh\_token] Contient les jetons de rafraîchissement des utilisateurs.
+        \item[oauth\_access\_token] Contient les jetons d'accès des utilisateurs.
+        \item[oauth\_client\_details] Contient les informations sur les clients OAuth2 (qui sont l'application mobile et l'équipe de notifications).
+    \end{description}
+    
+    \begin{figure}[hp] \centering
+%        \includegraphics[width=\textwidth]{Figures/entitesRequises}
+        \input{Figures/entitesRequises}
+        \caption{Entités indépendantes requises par Spring}
+        \label{fig.entitesRequises}
+    \end{figure}
     
     \subsection{Persistance}
-    \lipsumC
+    L'ensemble des entités restantes sont nécessaires à l'application et sont toutes liées à l'utilisateur :
+    \begin{description}
+        \item[users] Contient l'information de base sur chaque utilisateur (cip, actif, id).
+        \item[authorities] Contient les rôles de chaque utilisateur. Un utilisateur peut avoir plusieurs rôle (ADMIN et USER par exemple).
+        \item[notification\_token] Contient les divers tokens Expo de l'utilisateur. Un utilisateur a un token unique par appareil qu'il possède.
+        \item[calendar] Contient les informations du calendrier de l'utilisateur dont notamment sa clé ical et le dernier calendrier qui a été retourné par horarius (pour faire les diff).
+        \item[settings] Contient les préférences de l'utilisateur (une par colonne comme il n'y en pas beaucoup) notamment pour les notifications.
+    \end{description}
+
+    \begin{figure}[hp] \centering
+%        \includegraphics[width=\textwidth]{Figures/persistance}
+        \input{Figures/persistance}
+        \caption{Entités liées à l'application et l'utilisateur}
+        \label{fig.persistance}
+    \end{figure}
     
     \subsection{Développement global}
-    \lipsumC
-    
         \subsubsection{Éléments réalisés}
-        \lipsumC
+        Le principal élément réalisé lors du projet de session est l'\emph{utilisation de nombreuses technologies}. Évidemment, l'utilisation de différentes technologies pour la simplification et l'augmentation de la productivité nous a demandé plus de temps au commencement du projet, car la majorité des technologies n'était pas connue par l'équipe. Néanmoins, l'effort apporté pour l'apprentissage a eu beaucoup d'avantage dont l'environnement de développement qui est devenu de plus en plus robuste. En autres, le déploiement automatisé nous a permis de sauver quelques minutes à chaque fois qu'une fusion de branche s'effectuait avec “master”.
+    
+        L'application en soi propose une interface pour la visualisation de l'horaire et une gestion de notifications. Le problème que résout cette application provient de la réalité actuelle des étudiants en génie à l'Université de Sherbrooke en ce qui concerne les changements d'horaire et de divulgation de nouvelle information sur l'intranet. En effet, l'horaire affecte directement l'organisation temporelle des étudiants et l'application a pour avantage de divulguer le nouvelle horaire le plus tôt possible soit environ 5 min après un changement effectué. Ainsi, l'application est un avancement vers \emph{une meilleure gestion du temps pour les étudiants en génie} et constitue donc à un élément dont l'équipe est fière d'avoir réalisé. L'utilisateur désirant réduire les notifications reçus peut désactiver la fonctionnalité dans la page de configuration de l'application. Finalement, l'application a été conçue de façon à améliorer l'accessibilité des personnes mal ou non voyantes. Chaque mots de l'application est compatible avec la fonctionnalité de l'énonciation de texte intégré par défaut sur chaque téléphone.
+
+        Au niveau du serveur, l'équipe a implémenté un système d'autorisation et de permissions utilisant OAuth2. Cela était nécessaire puisque CAS ne permet de connexions longue durée sur plusieurs semaines. Cette approche a été très complexe à mettre en oeuvre, mais fonctionne très bien. L'utilisateur s'identifie d'abord avec le serveur CAS afin d'avoir une session sur notre serveur qui lui permet de récupérer un access token et un refresh token. Le premier lui permet d'accéder à certains API (selon ses permissions) et est valide quelques heures. Le deuxième lui permet de récupérer un nouveau access token et est valide trois mois. On peut vérifier les permissions lors de chaque refresh de token donc il est très facile de révoquer ou changer les accès au besoin. La figure suivante illustre le processus.
+    
+        \begin{figure}[hp] \centering
+%            \includegraphics[width=\textwidth]{Figures/modeleAutorisation}
+            \input{Figures/modeleAutorisation}
+            \caption{Modèle d'autorisation implémenté}
+            \label{fig.modeleAutorisation}
+        \end{figure}  
 
         \subsubsection{Solutions utilisées}
-        \lipsumC
+        \paragraph{Environnement de développement}
+        Pour le développement de l'application, la technologie React-Native avec Expo nous a permis une intégration multi-plateforme pour l'environnement de développement. À vrai dire, ces deux technologies nous ont permis développer efficacement, puisque le code était compilé sur les serveurs d'Expo plutôt que sur la machine du développeur. D'ailleurs, React-Native permet le développement sur Android et iOS en utilisant un unique code source. Comme si ce n'était pas suffisant, Expo nous permet de compiler l'application automatiquement lorsqu'on sauvegarde l'un des fichiers de l'application.  Ainsi, nous avons réalisé un environnement de développement applicatif multi-plateforme avec un déploiement mobile Android et iOS en temps réel ce qui nous a permis optimiser notre temps de travail.
+        
+        \paragraph{Gitlab}
+        Le choix de Gitlab a été principalement motivé par la volonté de l'équipe d'utiliser l'intégration et le déploiement continue dans le projet. Tel qu'illustré ci-bas, lors de chaque commit, Gitlab faisait un build de l'application et roulait les tests. Cela a permis aux développeurs de savoir très rapidement s'ils avaient brisé quelque chose et c'est une raison pour refuser un merge request. En supplément, pour le serveur, il y avait deux tâches supplémentaires lors de changements dans le master. Premièrement, Gitlab faisait une release qui consiste à construire l'image Docker. Ensuite, Gitlab se connectait en SSH sur la machine de production, arrêtait le service, téléchargeait la nouvelle image et repartait le service. Le tout prenant environ une dizaine de minute et nous avions toujours la dernière version à jour sur le serveur de production sans que l'équipe aille à s'en soucier.
+        
+        \begin{figure}[hp] \centering
+%            \includegraphics[width=\textwidth]{Figures/gitlab}
+            \input{Figures/gitlab}
+            \caption{Intégration et déploiement continu}
+            \label{fig.gitlab}
+        \end{figure}  
+        
+        \paragraph{Docker}
+        L'équipe étant très friande de nouvelles technologies, il a été décidé d'utiliser Docker afin d'encapsuler nos serveur spring. Le but est vraiment de créer une boîte noire facile à déployer et qui ne requiert pas de configuration. En plus de cela, l'équipe a utilisé un Docker-Compose afin d'encapsuler l'ensemble des services du backend. Cela crée un réseau virtuel séparé dont le seul point d'entré est un NGINX reverse proxy en HTTPS. Le reste des services peut utiliser des protocoles en clair comme il n'est pas possible d'y accéder de l'extérieur. Le tout est illustré par la figure suivante:
+
+        \begin{figure}[hp] \centering
+%            \includegraphics[width=\textwidth]{Figures/docker}
+            \input{Figures/docker}
+            \caption{Services du backend avec Docker-Compose}
+            \label{fig.docker}
+        \end{figure}
+
+        \paragraph{Spring}
+        Spring est le framework web Java le plus utilisé mondialement et en entreprise. Il contient énormément d'intégrations (injection de dépendances, CAS, OAuth2, REST, Hibernate, FlywayDB, OpenFeign, etc) qui nous ont notamment permis d'implémenter notre authentification et notre gestion des permissions complexe sans avoir à ajouter d'autres dépendances externes. La documentation et le support est également excellent puisque la communauté est très vaste et active.
+        
+        \paragraph{Kotlin}
+        Kotlin est un langage récent développé par Jetbrains qui roule sur la JVM. Sa grande force est qu'il est 100\% interopérable avec Java, ce qui nous a permis d'utiliser toutes les libraires déjà présentes dans l'écosystème Java. Un peu comme le Java depuis la version 8, Kotlin est un langage qui est influencé par le fonctionnel tout en gardant une forte base orientée-objet. De plus, le langage est null-safe et emprunte beaucoup de concepts d'immuabilité ce qui le rend très sécuritaire. Finalement, le langage possède une syntaxe moderne et est peu verbose ce qui le rend très agréable à utiliser. Pour toutes ces raisons, l'entièreté du backend a été codé avec Kotlin.
+
+        \paragraph{Intégration Horarius}
+        Par défaut, l'utilisation d'Horarius n'a pas d'API en place pour la détection d'un changement à l'horaire. Nous avons solutionné ce problème à l'aide d'un ajout de fonctionnalité dans le « back-end » qui différencie les horaires à chaque 5 min. Plus précisément, chaque étudiant utilise un lien iCal dont l'horaire complet peut être téléchargé. En émettant ce lien iCal, nous avons évalué l'évolution de chaque horaire dans un intervalle de temps. Optimalement, l'intégration de cette vérification doit être conçue à partir de l'administration des horaires puisque chaque requête de téléchargement d'horaire au serveur de l'Université de Sherbrooke est lourde et demande beaucoup de bands-passante pour une simple application. Nous avons donc une solution pour la preuve de concept et il suffirait d'un engagement plus concret envers le service d'administration des locaux de l'Université de Sherbrooke pour optimiser le processus.
+
+        \paragraph{Notification}
+        Lorsqu'une information pertinente doit être communiquée à l'utilisateur, l'utilisation du système de notifications de Facebook propose un moyen efficace pour l'envoi de notifications. Les notifications peuvent devenir très complexes à gérer puisque la diversité du type de notifications, la compatibilité multi-plateforme et la permissivité sont des facteurs influençant la qualité du sous-logiciel. Dans l'optique d'une meilleure efficacité, nous avons utilisé le système de notifications de Facebook qui gère très bien les notifications pour les raisons suivantes :
+        \begin{itemize}
+            \item Compatibilité avec toutes les plateformes
+            \item Simplicité d'utilisation et exemple concret d'utilisation
+            \item Pré-configuré pour être utilisé avec Expo
+        \end{itemize}
     
     \subsection{Problèmes rencontrés}
-    \lipsumC
+    L'un des problèmes rencontrés lors du développement mobile est le manque de documentation pour la technologie Expo. À vrai dire, les exemples d'application mobile Expo similaires sur le web ont été plus bénéfiques pour l'avancement du logiciel que la documentation en soi. En effet, la documentation React-Native et Expo laisse à désirer. D'ailleurs, une étude sur la technologie React-Native estime que le temps passé à écrire le code React-Native est moins de 1\%. React native propose donc un moyen simple d'intégration et de compatibilité multiplateformes, mais ce travail est un casse-tête constant pour les débutants.
+
+    \begin{figure}[hp] \centering
+%        \includegraphics[width=\textwidth]{Figures/react}
+        \input{Figures/react}
+        \caption{Répartition du temps dans un projet React Native}
+        \label{fig.react}
+    \end{figure}
+    
+    Comme mentionné précédemment, l'absence d'API pour la notification lors d'un changement à l'horaire a été un problème important pendant le développement. Tout d'abord, nous avons tenté de résoudre ce manque avec le groupe professoral, mais en vain. Voyant l'échéancier arriver à grands pas, nous avons décidé de concevoir notre propre logique d'évaluation de changement temporelle d'horaire. Évidemment, cela a généré d'autres problèmes connexes à cet ajout de fonctionnalité. En autres, le temps de calcul et la bande passante disponible sont inévitablement des paramètres qui ont été analysés pendant la conception.
+    
+    Finalement, nous avons rencontrés de nombreux problèmes lors de la mise en oeuvre de l'authentification. En effet, personne ne fait ce genre d'authentification CAS et OAuth2, car c'est redondant. On choisit généralement l'un ou l'autre et/ou on a le contrôle sur le serveur d'authentification. Il a fallu lire de nombreux tutoriels et expérimenter longtemps pour arriver à une solution fonctionnelle et sécuritaire. Nous avons même écrit un document technique assez poussé détaillant précisément comment CAS et OAuth2 fonctionne en général et dans l'application afin de garder une trace de nos recherches.

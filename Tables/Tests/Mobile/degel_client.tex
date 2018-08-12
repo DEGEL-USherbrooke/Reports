@@ -1,0 +1,78 @@
+\begin{tabular}{P{0.45\textwidth}P{0.45\textwidth}}
+\hline
+\bf Nom
+&
+\bf Description
+\\
+\hline
+\hline
+\#requestAndSaveAccessTokensWithCode authorized
+&
+Requête des access tokens réussite
+\\
+\#requestAndSaveAccessTokensWithCode unauthorized
+&
+Requête des access tokens non réussite
+\\
+\#refreshAccessToken
+&
+Requête des refresh tokens réussite
+\\
+\#refreshAccessToken unauthorized
+&
+Requête des refresh tokens non réussite
+\\
+\#getCurrentUser authorized
+&
+Obtenir l'utilisateur courant réussi
+\\
+\#getCurrentUser unauthorized
+&
+Obtenir l'utilisateur courant non réussi
+\\
+\#getSettingsStatus authorized
+&
+Obtenir l'état des paramètres réussi
+\\
+\#getSettingsStatus unauthorized
+&
+Obtenir l'état des paramètres non réussi
+\\
+\#getSettingsStatus unauthorized when id is undefined
+&
+Obtenir l'état des paramètres non réussi lorsque le id de l'usager est absent
+\\
+\#setSettingsStatus unauthorized
+&
+Requête de changement de paramètres non réussite
+\\
+\#setSettingsStatus unauthorized when id is undefined
+&
+Requête de changement de paramètres non réussite lorsque le id de l'usageer est absent
+\\
+\#setSettingsStatus notification mobile = true
+&
+Requête de changement de paramètre vers le positif réussite
+\\
+\#setSettingsStatus notification mobile = false
+&
+Requête de changement de paramètres vers le négatif réussite
+\\
+Sends registration token when permission is granted by the user
+&
+Envoi des tokens de notification réussi
+\\
+Sends registration token when permission is already granted
+&
+Envoi des tokens de notification réussi même si déjà envoyés
+\\
+Does not send registration token when permission is denied by the user
+&
+Non envoi des tokens de notification lorsque l'usager refuse
+\\
+registerForPushNotificationsAsync authorized
+&
+Enregistrement pour des notifications réussite        
+\\
+\hline
+\end{tabular}

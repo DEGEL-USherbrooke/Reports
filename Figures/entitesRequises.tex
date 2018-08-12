@@ -1,0 +1,63 @@
+\begingroup \renewcommand{\arraystretch}{1}
+\begin{tikzpicture}\tikzstyle{every node}=[font=\tiny]
+% flyaway_schema_history
+  \node[draw, rounded corners, align=center, anchor=south] at (0,0)%
+{%
+  \bf flyway\_{}schema\_{}history \\
+  \begin{tabular}{lll}
+  \underline{\#} & \underline{installed\_rank} & \underline{Entier} \\
+  $\circ$ & version & Caractère variable (256) \\
+  $\circ$ & description & Caractère variable (256) \\
+  $\circ$ & type & Caractère variable (256) \\
+  $\circ$ & script & Caractère variable (256) \\
+  $\circ$ & checksum & Entier \\
+  $\circ$ & installed\_by & Caractère variable (256) \\
+  $\circ$ & installed\_in & Date système \\
+  $\circ$ & execution\_time & Entier \\
+  $\circ$ & success & Bool
+  \end{tabular}
+};
+% oauth_refresh_token
+  \node[draw, rounded corners, align=center, anchor=south] at (5.25,2)%
+{%
+  \bf oauth\_refresh\_token \\
+  \begin{tabular}{lll}
+  $\circ$ & token\_id & Caractère variable (256) \\
+  $\circ$ & token & Multibyte variable \\
+  $\circ$ & authentification & Multibyte variable
+  \end{tabular}
+};
+% oauth_access_token
+  \node[draw, rounded corners, align=center, anchor=south] at (5.25,0)%
+{%
+  \bf oauth\_access\_token \\
+  \begin{tabular}{lll}
+  $\circ$ & token\_id & Caractère variable (256) \\
+  $\circ$ & token & Multibyte variable \\
+  \underline{\#} & \underline{authentification\_id\_oauth} & \underline{UUID} \\
+  $\circ$ & user\_name & Caractère variable (256) \\
+  $\circ$ & client\_id & Caractère variable (256) \\
+  $\circ$ & authentification & Multibyte variable \\
+  $\circ$ & refresh\_token & Caractère variable (256)
+  \end{tabular}
+};
+% oauth_client_details
+  \node[draw, rounded corners, align=center, anchor=south] at (10.85,0)%
+{%
+  \bf oauth\_client\_details \\
+  \begin{tabular}{lll}
+  \underline{\#} & \underline{client\_id} & \underline{Caractère variable (256)} \\
+  $\circ$ & resources\_ids & Caractère variable (256) \\
+  $\circ$ & client\_secret & Caractère variable (256) \\
+  $\circ$ & scope & Caractère variable (256) \\
+  $\circ$ & authorize\_grent\_type & Caractère variable (256) \\
+  $\circ$ & web\_server\_redirect\_url & Caractère variable (256) \\
+  $\circ$ & authorities & Caractère variable (256) \\
+  $\circ$ & access\_token\_validity & Entier \\
+  $\circ$ & refresh\_token\_validity & Entier \\
+  $\circ$ & additional\_information & Caractère variable (256) \\
+  $\circ$ & autoapprove & Caractère variable (256)
+  \end{tabular}
+};
+\end{tikzpicture}
+\endgroup

@@ -1,19 +1,67 @@
 \section{Description des méthodes de test}
-\lipsumC
+    \subsection{Mobile}
+        \subsubsection{Tests unitaires}
+        Une panoplies de tests unitaires automatisés ont été effectués. Ces tests résident dans les trois fichiers suivants : «degelClient.test.js», «session.test.js» et «storageHelper.test.js» du dossier «BL/\_\_test\_\_» de notre codebase. Les libraires de tests utilisés sont les suivantes :
+        \begin{description}
+            \item[Jest expo] Assertions de base, mock de fonctions.
+            \item [Jest-fetch-mock] Mock de requêtes HTTP
+            \item[Fetch-vcr] Enregistre des requêtes HTTP pour les rejouer lors des tests
+            \item[Mock-async-storage] Simule l'environnement de storage du téléphone lorsque les tests tournent sur une machine de développement.
+        \end{description}
 
-    \subsection{Tests unitaires}
-    \lipsumC
-    
-    \subsection{Fonctionnalités testées et critères de passage}
-    \lipsumC
-    
-    \subsection{Tests d'intégration}
-    \lipsumC
-    
-        \subsubsection{Scénarios d'utilisation testés}
-        \lipsumC
+        Voici une liste des tests unitaires de l'application mobile\footnote{Le titre des tests unitaires est censé décrire ses critères de passation, cependant pour plus de détails concernant les tests des effets de bord («side effects»), il faut se référer au code source des tests de l'application mobile.}.
+                
+        \begin{table}[hp]
+            \centering
+            \caption{DEGEL Client}
+            \input{Tables/Tests/Mobile/degel_client}
+            \label{tab.testsDegel}
+        \end{table}
         
-        \subsubsection{Sommaire des résultats courants}
-        \lipsumC
+        \begin{table}[hp]
+            \centering
+            \caption{Session Tests}
+            \input{Tables/Tests/Mobile/session}
+            \label{tab.testsSession}
+        \end{table}
+
+        \begin{table}[hp]
+            \centering
+            \caption{Storage Helper}
+            \input{Tables/Tests/Mobile/storage}
+            \label{tab.testsStorage}
+        \end{table}
+                
+        \subsubsection{Tests d'intégration}
+        Voici les scénarios de tests d'intégrations mobile. Ces tests d'intégrations sont fait et vérifiés manuellement :
+
+        \begin{table}[hp]
+            \centering
+            \caption{Tests d'intégration sur mobile}
+            \input{Tables/Tests/Mobile/integration}
+            \label{tab.testsIntegrationMobile}
+        \end{table}
+                
+    \subsection{Backend}
+
+        \subsubsection{Tests unitaires}
+        Plusieurs frameworks tel JUnit et mockk (équivalent Kotlin de Mockito) ont été utilisés du côté backend pour effectuer une série de tests unitaires. Ceux-ci reposent sur l'injection de dépendances par souci de praticité ce qui permet de ne tester qu'un module à la fois. Comme la logique d'affaire se retrouve principalement dans les services et les helpers, ce sont eux qui ont été principalement testés. Les tests se trouvent tous dans le dossier  src/tests/kotlin/ca/usherbrooke.degel.
+
+        \begin{table}[hp]
+            \centering
+            \caption{Tests backend}
+            \input{Tables/Tests/Mobile/backend}
+            \label{tab.testsBackend}
+        \end{table}
         
+        \subsubsection{Tests d'intégration}
+        Un interface swagger a été installée sur notre backend. Celle-ci permet facilement d'effectuer des tests d'intégrations pour tout nos end-points. Swagger est une belle interface graphique qui permet de faire des requêtes HTTP autorisés à des endpoints en injectant les bonnes données. Il reste ensuite à observer le résultat pour savoir si la fonctionnalité marche ou non. Les tests d'intégrations du backend ont été effectués manuellement.
         
+        \begin{figure}[hp] \centering
+            \centering
+            \includegraphics[width=\textwidth]{Figures/swagger}
+            \caption{Interface swagger du backend}
+            \label{fig.swagger}
+        \end{figure}
+        
+                

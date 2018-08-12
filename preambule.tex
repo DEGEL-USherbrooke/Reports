@@ -25,12 +25,14 @@
 	amssymb}
 
 % Tiks Figures
-\usepackage{xcolor, tikz}
-\usetikzlibrary{babel} % Conciliation babel et tikz
+\usepackage{xcolor, tikz, tikzpeople, calc, dirtree}
+\usetikzlibrary{babel, shapes, decorations.pathreplacing, arrows}
+\input{wheelchart}
 
 % Table Fix
 \usepackage{array}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\arraystretch}{1.5}
 
 % Mathematics
 \usepackage{siunitx}
@@ -63,14 +65,14 @@
 \addto\captionsfrench{\def\tablename{\sc{Tableau}}} % Renommer les tableaux
 \patchcmd{\thebibliography}{\section*{\refname}}{}{}{} % Renommer la bibliographie
 
-%: My Own Commands
+%: New Commands
 \newcommand{\cip}[1]{#1}
 \newcommand{\nomF}[1]{\textsc{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\membre}[3]{\texttt{#3} & #1 \textsc{#2} \\}
 
 \def \titreRapport {Rapport final}
-\def \dateRemise {30 juillet 2018}
+\def \dateRemise {15 août 2018}
 \def \titreProjet {Projet DEGEL}
-\def \numeroIteration {\# 3.0}
+\def \numeroIteration {\#4.0}
 

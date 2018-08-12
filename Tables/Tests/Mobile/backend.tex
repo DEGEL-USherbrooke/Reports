@@ -1,0 +1,106 @@
+% One must insert an empty line between '\\' and '[', otherwise TeX is looking for a vertical space value between the brackets
+\begin{tabular}{P{0.3\textwidth}P{0.6\textwidth}}
+\hline
+\bf Nom
+&
+\bf Description
+\\
+\hline
+\hline%
+
+[Helper] Test diff calendars
+&
+Test du helper de différences de calendriers (ajout, suppression, modification)
+\\%
+
+[Helper] Test same events
+&
+Test du helper de différences d'événements (dates, local, professeur)
+\\%
+
+[Settings] Get user settings
+&
+Test le fetch des préférences de l'utilisateur
+\\%
+
+[Settings] When no settings get default settings
+&
+Test que les préférences par défaut sont retournées pour un nouvel utilisateur
+\\%
+
+[Settings] If no settings insert them
+&
+Test que les nouvelles préférences de l'utilisateur sont enregistrées
+\\%
+
+[Settings] If settings present update them
+&
+Test que les préférences de l'utilisateur sont mises à jour
+\\%
+
+[Calendrier] If no calendar insert it
+&
+Test l'insertion de l'entité calendrier si non présent
+\\%
+
+[Calendrier] If calendar present update the key
+&
+Test la mise à jour de la clé horarius
+\\%
+
+[Calendrier] If no calendar throw
+&
+Test l'exception si le système n'a pas de calendar lorsque demandé
+\\%
+
+[Calendrier] If empty calendar key throw
+&
+Test l'exception si le système à une clé horarius vide
+\\%
+
+[Calendrier] If invalid key throw
+&
+Test l'exception si le système détecte une clé invalide
+\\%
+
+[Calendrier] Get user calendar
+&
+Test l'utilisation normale du client horarius
+\\%
+
+[Calendrier] If fetching error throw
+&
+Test l'exception si horarius retourne une erreur
+\\%
+
+[Calendrier] Get stored calendar
+&
+Test l'extraction du calendrier ical enregistré dans la BD
+\\%
+
+[Calendrier] Update calendar for user
+&
+Test l'update du calendrier ical dans la BD
+\\%
+
+[Calendrier] Cannot insert invalid calendar key
+&
+Test l'exception si l'utilisateur tente d'insérer une clé invalide
+\\%
+
+[Notifications] When new token add token
+&
+Test d'ajout d'un nouveau token Expo
+\\%
+
+[Notifications] When duplicate token delete old token and then add new token
+&
+Test le remplacement d'un Token en cas de duplicata
+\\%
+
+[Général] Test context load
+&
+Test que l'application peut démarrer (long test)
+\\
+\hline
+\end{tabular}

@@ -1,0 +1,21 @@
+\begin{tikzpicture}\tikzstyle{every node}=[font=\small]
+  \node[graduate, minimum size=1.5cm] (user) at (0,0) { Utilisateur mobile};
+  \node[businessman, mirrored, minimum size=1.5cm] (admin) at (10,2) { Administrateur};
+%%%%%%%%%%%%%
+  \node[jester, mirrored, minimum size=1.5cm] (team) at (10,-2) { Équipe de notification};
+  \node[draw, ellipse, align=center] (perm) at (5,3) { Gérer les \\  permissions des \\  utilisateurs};
+  \node[draw, ellipse, align=center] (auth) at (5,1) { S'authentifier};
+  \node[draw, ellipse, align=center] (notif) at (5,-1) { Envoyer une \\  notification};
+  \node[draw, ellipse, align=center] (access) at (5,-3) { Accès à l'horaire};
+%%%%%%%%%%%%%
+\draw[-latex] (user.east) -- (auth.west);
+\draw[-latex] (user.east) -- (access.west);
+\draw[-latex] (admin.west) -- (perm.east);
+\draw[-latex] (admin.west) -- (auth.east);
+\draw[-latex] (admin.west) -- (notif.east);
+\draw[-latex] (team.west) -- (auth.east);
+\draw[-latex] (team.west) -- (notif.east);
+%%%%%%%%%%%%%
+\draw (2,-4) -- (2,5) -- (8,5) -- (8,-4) -- (2,-4);
+\node[anchor=north west, draw] at (2,5) {{\bfseries Backend}};
+\end{tikzpicture}

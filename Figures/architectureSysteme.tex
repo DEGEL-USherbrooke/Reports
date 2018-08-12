@@ -1,0 +1,43 @@
+\begin{tikzpicture}\tikzstyle{every node}=[font=\small]
+%%%%%%%% Colours %%%%%%%%
+\definecolor{greenUML}{HTML}{D5E7D5}
+\definecolor{blueUML}{HTML}{DAE8FB}
+\definecolor{redUML}{HTML}{F8CECD}
+%%%%%%%% White %%%%%%%%
+  \node[draw, align=center, rounded corners, fill=greenUML] (app) at (0,0) {Application \\ mobile};
+%%%%%%%% Green %%%%%%%%
+  \node[draw, align=center, rounded corners, fill=greenUML] (auth) at (0,3) {\bf Auth \\ Kotlin/Spring};
+  \node[draw, align=center, rounded corners, fill=greenUML] (db) at (3,5) {\bf Base de données \\ Postgres};
+  \node[draw, align=center, rounded corners, fill=greenUML] (horaire) at (3,3) {\bf Horaire \\ Kotlin/Spring};
+  \node[draw, align=center, rounded corners, fill=greenUML] (notif) at (9,5) {\bf Notifications \\ \bf mobiles \\ Kotlin/Spring};
+%%%%%%%% Blue %%%%%%%%
+  \node[draw, align=center, rounded corners, fill=blueUML] (team) at (9,3) {\bf Équipe de \\ \bf notifications};
+  \node[draw, align=center, rounded corners, fill=blueUML] (autres) at (9,0) {\bf Autres \\ \bf services};
+  \node[draw, align=center, rounded corners, fill=blueUML, minimum height=2\baselineskip] (horarius) at (6,0) {\bf Horarius};
+%%%%%%%% Red %%%%%%%%
+  \node[draw, align=center, rounded corners, fill=redUML] (sysNotif) at (12,3) {\bf Sys.\ notifications \\ Serveurs de Facebook};
+%%%%%%%%%%%%%%%%%%%%%
+% App
+\draw[-latex] (app.north) -- node[midway, fill=white] {Authentification} (auth.south);
+\draw[-latex] let \p1 = (app.east), \p2 = (horarius.west) in
+  (\x1, {\y1-5}) -- node[midway, fill=white] {Fetch token iCal} (\x2, {\y2-5});
+% Autres
+\draw[-latex] (autres.north) -- (team.south);
+% Notif
+\draw[-latex] (notif.west) -- (db.east);
+\draw[-latex] (notif.east) -- (12,5) -- node[midway, fill=white, align=center] {\bf Notifications \\ \scriptsize Exp[10kdd93vn40]} (sysNotif.north); % sorry hardcoded
+% Team
+\draw[-latex] (team.north) -- (notif.south);
+% Horaire
+\draw[-latex] (horaire.north) -- (db.south);
+\draw[-latex] let \p1 = (horaire.east), \p2 = (team.west) in
+  (\x1, {\y1+8}) -- node[midway, fill=white, align=center] {Changement \\ horaire} (\x2, {\y2+8});
+\draw[latex-latex] let \p1 = (horaire.south), \p2 = (app.east) in
+  (horaire.south) -- node[midway, fill=white, align=center] {Échange de \\ données} (\x1, {\y2+5}) -- (\x2, {\y2+5});
+\draw[-latex] let \p1 = (horaire.east), \p2 = (horarius.north) in
+  (\x1, {\y1-8}) -- (\x2, {\y1-8}) -- node[midway, fill=white] {Horaire iCal} (horarius.north);
+% Auth
+\draw[-latex] (auth.north) -- (0,5) -- (db.west); % sorry hardcoded
+% Sys Notifications
+\draw[-latex] (sysNotif.south) -- node[midway, fill=white, align=center] {\bf PUSH \\ Notifications} (12,-1) -- (0,-1) -- (app.south); % sorry hardcoded
+\end{tikzpicture}

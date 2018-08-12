@@ -1,0 +1,21 @@
+\begin{tikzpicture}\tikzstyle{every node}=[font=\small]
+  \node[bob, minimum size=1.5cm, label={Actor}] (actor) at (0,0) {};
+  \node[draw, rounded corners, inner sep = 0.5cm] (cas_server) at (3,-3) {CAS Server};
+  \node[draw, rounded corners, minimum height=2\baselineskip] (cas_layer) at (0,-5) {CAS Layer};
+  \node[draw, rounded corners, align=center] (auth) at (-3,-5) {OAuth2 \\ Authorization};
+  \node[draw, rounded corners, align=center] (token) at (-6,-5) {OAuth2 \\ Token};
+  \node[draw, rounded corners, minimum height = 2\baselineskip] (layer) at (-9,-5) {OAuth2 Layer};
+  \node[draw, rounded corners, inner sep=0.5cm] (ress) at (-9,-6.5) {Ressources};
+%%%%%%%%%%%%%%%%%
+\draw[latex-latex] (cas_server.north west) -- node[midway, fill=white] {1} (actor.south east);
+\draw[-latex] (actor.south) -- node[midway, fill=white] {2} (cas_layer);
+\draw[latex-latex] (cas_layer.north east) -- node[midway, fill=white] {3} (cas_server.south west);
+\draw[-latex] let \p1 = (cas_layer.north), \p2 = (actor.south) in
+  ({\x1-12}, \y1) -- node[midway, fill=white] {4} ({\x2-12}, \y2);
+\draw[latex-latex] (actor.south west) -- node[midway, fill=white] {5} (auth.north);
+\draw[latex-latex] let \p1 = (actor.west) in
+  (\x1, {\y1-10}) -- node[midway, fill=white] {6} (token.north);
+\draw[latex-latex] let \p1 = (actor.west) in
+  (\x1, {\y1+5}) -- node[midway, fill=white] {7} (layer.north);
+\draw[-latex] (layer.south) -- (ress.north);
+\end{tikzpicture}
