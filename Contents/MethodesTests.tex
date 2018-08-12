@@ -1,15 +1,20 @@
 \section{Description des méthodes de test}
     \subsection{Mobile}
         \subsubsection{Tests unitaires}
-        Une panoplies de tests unitaires automatisés ont été effectués. Ces tests résident dans les trois fichiers suivants : «degelClient.test.js», «session.test.js» et «storageHelper.test.js» du dossier «BL/\_\_test\_\_» de notre codebase. Les libraires de tests utilisés sont les suivantes :
+        Une panoplies de tests unitaires automatisés a été effectuée (tableaux\footnote{Le titre des tests unitaires est censé décrire ses critères de passation, cependant pour plus de détails concernant les tests des effets de bord (\emph{side effects}), il faut se référer au code source des tests de l'application mobile.}~\ref{tab.testsDegel}, \ref{tab.testsSession}, \ref{tab.testsStorage}). Ces tests résident dans les trois fichiers suivants du dossier \code{BL/\_\_test\_\_} de notre \emph{codebase} : 
+        \begin{itemize}
+            \item \code{degelClient.test.js}
+            \item \code{session.test.js}
+            \item \code{storageHelper.test.js}
+        \end{itemize}
+        
+        \noindent Les libraires de tests utilisées sont les suivantes :
         \begin{description}
-            \item[Jest expo] Assertions de base, mock de fonctions.
-            \item [Jest-fetch-mock] Mock de requêtes HTTP
-            \item[Fetch-vcr] Enregistre des requêtes HTTP pour les rejouer lors des tests
-            \item[Mock-async-storage] Simule l'environnement de storage du téléphone lorsque les tests tournent sur une machine de développement.
+            \item[Jest expo] Effectue les assertions de base, le mock de fonctions.
+            \item [Jest-fetch-mock] Effectue le mock de requêtes HTTP.
+            \item[Fetch-vcr] Enregistre des requêtes HTTP pour les rejouer lors des tests.
+            \item[Mock-async-storage] Simule l'environnement de storage du téléphone.
         \end{description}
-
-        Voici une liste des tests unitaires de l'application mobile\footnote{Le titre des tests unitaires est censé décrire ses critères de passation, cependant pour plus de détails concernant les tests des effets de bord («side effects»), il faut se référer au code source des tests de l'application mobile.}.
                 
         \begin{table}[hp]
             \centering
@@ -33,7 +38,7 @@
         \end{table}
                 
         \subsubsection{Tests d'intégration}
-        Voici les scénarios de tests d'intégrations mobile. Ces tests d'intégrations sont fait et vérifiés manuellement :
+        Les scénarios de tests d'intégrations mobile sont fait et vérifiés manuellement (tableau~\ref{tab.testsIntegrationMobile}).
 
         \begin{table}[hp]
             \centering
@@ -43,19 +48,18 @@
         \end{table}
                 
     \subsection{Backend}
-
         \subsubsection{Tests unitaires}
-        Plusieurs frameworks tel JUnit et mockk (équivalent Kotlin de Mockito) ont été utilisés du côté backend pour effectuer une série de tests unitaires. Ceux-ci reposent sur l'injection de dépendances par souci de praticité ce qui permet de ne tester qu'un module à la fois. Comme la logique d'affaire se retrouve principalement dans les services et les helpers, ce sont eux qui ont été principalement testés. Les tests se trouvent tous dans le dossier  src/tests/kotlin/ca/usherbrooke.degel.
+        Plusieurs \emph{frameworks} tels que JUnit et MockK (équivalent Kotlin de Mockito) ont été utilisés du côté backend pour effectuer une série de tests unitaires (tableau~\ref{tab.testsBackend}). Ceux-ci reposent sur l'injection de dépendances par souci de praticité, ce qui permet de ne tester qu'un module à la fois. Comme la logique d'affaire se retrouve surtout dans les \emph{services} et les \emph{helpers}, ce sont eux qui ont été principalement testés. Les tests se trouvent  dans le dossier \code{src/tests/kotlin/ca/usherbrooke.degel/}.
 
         \begin{table}[hp]
             \centering
             \caption{Tests backend}
-            \input{Tables/Tests/Mobile/backend}
+            \input{Tables/Tests/Backend/backend}
             \label{tab.testsBackend}
         \end{table}
         
         \subsubsection{Tests d'intégration}
-        Un interface swagger a été installée sur notre backend. Celle-ci permet facilement d'effectuer des tests d'intégrations pour tout nos end-points. Swagger est une belle interface graphique qui permet de faire des requêtes HTTP autorisés à des endpoints en injectant les bonnes données. Il reste ensuite à observer le résultat pour savoir si la fonctionnalité marche ou non. Les tests d'intégrations du backend ont été effectués manuellement.
+        Une interface Swagger a été installée sur notre backend (figure~\ref{fig.swagger}). Celle-ci permet d'effectuer facilement des tests d'intégration pour tout nos \emph{endpoints}. Swagger est une belle interface graphique qui permet de faire des requêtes HTTP autorisées à des \emph{endpoints} en injectant les bonnes données. Il reste ensuite à observer le résultat pour savoir si la fonctionnalité fonctionne ou non. Les tests d'intégration du backend ont été effectués manuellement.
         
         \begin{figure}[hp] \centering
             \centering

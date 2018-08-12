@@ -1,5 +1,5 @@
 \begingroup \renewcommand{\arraystretch}{1}
-\begin{tikzpicture}\tikzstyle{every node}=[font=\tiny]
+\begin{tikzpicture}\tikzstyle{every node}=[font=\footnotesize]
 % users
   \node[draw, rounded corners, align=center] (users) at (0,0)%
 {%
@@ -12,7 +12,7 @@
   \end{tabular}
 };
 % calendar
-  \node[draw, rounded corners, align=center, anchor=east] (cal) at (-3,1.5)%
+  \node[draw, rounded corners, align=center, anchor=east] (cal) at (-4,2)%
 {%
   \bf calendar \\
   \begin{tabular}{lll}
@@ -23,7 +23,7 @@
   \end{tabular}
 };
 % notification_token
-  \node[draw, rounded corners, align=center, anchor=east] (notif) at (-3,0)%
+  \node[draw, rounded corners, align=center, anchor=east] (notif) at (-4,0)%
 {%
   \bf notification\_token \\
   \begin{tabular}{lll}
@@ -32,7 +32,7 @@
   \end{tabular}
 };
 % settings
-  \node[draw, rounded corners, align=center, anchor=east] (settings) at (-3,-1.5)%
+  \node[draw, rounded corners, align=center, anchor=east] (settings) at (-4,-2)%
 {%
   \bf settings \\
   \begin{tabular}{lll}
@@ -41,7 +41,7 @@
   \end{tabular}
 };
 % authorities
-  \node[draw, rounded corners, align=center, anchor=west] (auth) at (3.5,0)%
+  \node[draw, rounded corners, align=center, anchor=south] (auth) at (3,2.5)%
 {%
   \bf authorities \\
   \begin{tabular}{lll}
@@ -50,8 +50,8 @@
 };
 %%%%%%%%%%%%%%%%
 \draw[-latex reversed] (users.west) -- node[midway, fill=white] {a des} (notif.east);
-\draw[-latex reversed] (users.south) -- (0,-1.5) -- node[midway, fill=white] {a les}(settings.east);
-\draw[-latex reversed] (users.north) -- (0,1.5) -- node[midway, fill=white] {calendriers de} (cal.east);
-\draw[-latex reversed] (users.east) -- node[midway, fill=white] {possède les}(auth.west);
+\draw[-latex reversed] (users.south) -- (0,-2) -- node[midway, fill=white] {a les}(settings.east);
+\draw[-latex reversed] (users.north) -- (0,2) -- node[midway, fill=white] {calendriers de} (cal.east);
+\draw[-latex reversed] (users.east) -- (3,0) -- node[midway, fill=white] {possède les} (auth.south);
 \end{tikzpicture}
 \endgroup
